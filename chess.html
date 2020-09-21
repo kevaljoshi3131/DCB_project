@@ -1,0 +1,1610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package chess</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>chess</strong></big></big> (version 0.31.4)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/keval/DCB_project/venv/lib/python3.8/site-packages/chess/__init__.py">/home/keval/DCB_project/venv/lib/python3.8/site-packages/chess/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;pure&nbsp;Python&nbsp;chess&nbsp;library&nbsp;with&nbsp;move&nbsp;generation&nbsp;and&nbsp;validation,&nbsp;Polyglot<br>
+opening&nbsp;book&nbsp;probing,&nbsp;PGN&nbsp;reading&nbsp;and&nbsp;writing,&nbsp;Gaviota&nbsp;tablebase&nbsp;probing,<br>
+Syzygy&nbsp;tablebase&nbsp;probing&nbsp;and&nbsp;XBoard/UCI&nbsp;engine&nbsp;communication.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="chess.engine.html">engine</a><br>
+<a href="chess.gaviota.html">gaviota</a><br>
+</td><td width="25%" valign=top><a href="chess.pgn.html">pgn</a><br>
+<a href="chess.polyglot.html">polyglot</a><br>
+</td><td width="25%" valign=top><a href="chess.svg.html">svg</a><br>
+<a href="chess.syzygy.html">syzygy</a><br>
+</td><td width="25%" valign=top><a href="chess.variant.html">variant</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="chess.html#BaseBoard">BaseBoard</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="chess.html#Board">Board</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="chess.html#LegalMoveGenerator">LegalMoveGenerator</a>
+</font></dt><dt><font face="helvetica, arial"><a href="chess.html#Move">Move</a>
+</font></dt><dt><font face="helvetica, arial"><a href="chess.html#Piece">Piece</a>
+</font></dt><dt><font face="helvetica, arial"><a href="chess.html#PseudoLegalMoveGenerator">PseudoLegalMoveGenerator</a>
+</font></dt><dt><font face="helvetica, arial"><a href="chess.html#SquareSet">SquareSet</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="enum.html#IntFlag">enum.IntFlag</a>(<a href="builtins.html#int">builtins.int</a>, <a href="enum.html#Flag">enum.Flag</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="chess.html#Status">Status</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BaseBoard">class <strong>BaseBoard</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BaseBoard">BaseBoard</a>(board_fen:&nbsp;Union[str,&nbsp;NoneType]&nbsp;=&nbsp;'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;board&nbsp;representing&nbsp;the&nbsp;position&nbsp;of&nbsp;chess&nbsp;pieces.&nbsp;See<br>
+:class:`~chess.<a href="#Board">Board</a>`&nbsp;for&nbsp;a&nbsp;full&nbsp;board&nbsp;with&nbsp;move&nbsp;generation.<br>
+&nbsp;<br>
+The&nbsp;board&nbsp;is&nbsp;initialized&nbsp;with&nbsp;the&nbsp;standard&nbsp;chess&nbsp;starting&nbsp;position,&nbsp;unless<br>
+otherwise&nbsp;specified&nbsp;in&nbsp;the&nbsp;optional&nbsp;*board_fen*&nbsp;argument.&nbsp;If&nbsp;*board_fen*<br>
+is&nbsp;``None``,&nbsp;an&nbsp;empty&nbsp;board&nbsp;is&nbsp;created.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BaseBoard-__copy__"><strong>__copy__</strong></a>(self: ~BaseBoardT) -&gt; ~BaseBoardT</dt></dl>
+
+<dl><dt><a name="BaseBoard-__deepcopy__"><strong>__deepcopy__</strong></a>(self: ~BaseBoardT, memo: Dict[int, object]) -&gt; ~BaseBoardT</dt></dl>
+
+<dl><dt><a name="BaseBoard-__eq__"><strong>__eq__</strong></a>(self, board: object) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-__init__"><strong>__init__</strong></a>(self, board_fen: Union[str, NoneType] = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR') -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-apply_transform"><strong>apply_transform</strong></a>(self, f: Callable[[int], int]) -&gt; None</dt></dl>
+
+<dl><dt><a name="BaseBoard-attackers"><strong>attackers</strong></a>(self, color: bool, square: int) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;the&nbsp;set&nbsp;of&nbsp;attackers&nbsp;of&nbsp;the&nbsp;given&nbsp;color&nbsp;for&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+Pinned&nbsp;pieces&nbsp;still&nbsp;count&nbsp;as&nbsp;attackers.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-attackers_mask"><strong>attackers_mask</strong></a>(self, color: bool, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseBoard-attacks"><strong>attacks</strong></a>(self, square: int) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;the&nbsp;set&nbsp;of&nbsp;attacked&nbsp;squares&nbsp;from&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+There&nbsp;will&nbsp;be&nbsp;no&nbsp;attacks&nbsp;if&nbsp;the&nbsp;square&nbsp;is&nbsp;empty.&nbsp;Pinned&nbsp;pieces&nbsp;are<br>
+still&nbsp;attacking&nbsp;other&nbsp;squares.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-attacks_mask"><strong>attacks_mask</strong></a>(self, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseBoard-board_fen"><strong>board_fen</strong></a>(self, *, promoted: Union[bool, NoneType] = False) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;board&nbsp;FEN.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-chess960_pos"><strong>chess960_pos</strong></a>(self) -&gt; Union[int, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;Chess960&nbsp;starting&nbsp;position&nbsp;index&nbsp;between&nbsp;0&nbsp;and&nbsp;959<br>
+or&nbsp;``None``.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-clear_board"><strong>clear_board</strong></a>(self) -&gt; None</dt><dd><tt>Clears&nbsp;the&nbsp;board.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-color_at"><strong>color_at</strong></a>(self, square: int) -&gt; Union[bool, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;piece&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-copy"><strong>copy</strong></a>(self: ~BaseBoardT) -&gt; ~BaseBoardT</dt><dd><tt>Creates&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;board.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-is_attacked_by"><strong>is_attacked_by</strong></a>(self, color: bool, square: int) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;side&nbsp;attacks&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+Pinned&nbsp;pieces&nbsp;still&nbsp;count&nbsp;as&nbsp;attackers.&nbsp;Pawns&nbsp;that&nbsp;can&nbsp;be&nbsp;captured<br>
+en&nbsp;passant&nbsp;are&nbsp;**not**&nbsp;considered&nbsp;attacked.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-is_pinned"><strong>is_pinned</strong></a>(self, color: bool, square: int) -&gt; bool</dt><dd><tt>Detects&nbsp;if&nbsp;the&nbsp;given&nbsp;square&nbsp;is&nbsp;pinned&nbsp;to&nbsp;the&nbsp;king&nbsp;of&nbsp;the&nbsp;given&nbsp;color.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-king"><strong>king</strong></a>(self, color: bool) -&gt; Union[int, NoneType]</dt><dd><tt>Finds&nbsp;the&nbsp;king&nbsp;square&nbsp;of&nbsp;the&nbsp;given&nbsp;side.&nbsp;Returns&nbsp;``None``&nbsp;if&nbsp;there<br>
+is&nbsp;no&nbsp;king&nbsp;of&nbsp;that&nbsp;color.<br>
+&nbsp;<br>
+In&nbsp;variants&nbsp;with&nbsp;king&nbsp;promotions,&nbsp;only&nbsp;non-promoted&nbsp;kings&nbsp;are<br>
+considered.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-mirror"><strong>mirror</strong></a>(self: ~BaseBoardT) -&gt; ~BaseBoardT</dt><dd><tt>Returns&nbsp;a&nbsp;mirrored&nbsp;copy&nbsp;of&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+The&nbsp;board&nbsp;is&nbsp;mirrored&nbsp;vertically&nbsp;and&nbsp;piece&nbsp;colors&nbsp;are&nbsp;swapped,&nbsp;so&nbsp;that<br>
+the&nbsp;position&nbsp;is&nbsp;equivalent&nbsp;modulo&nbsp;color.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-piece_at"><strong>piece_at</strong></a>(self, square: int) -&gt; Union[chess.Piece, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;:class:`piece&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-piece_map"><strong>piece_map</strong></a>(self) -&gt; Dict[int, chess.Piece]</dt><dd><tt>Gets&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;:class:`pieces&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`&nbsp;by&nbsp;square&nbsp;index.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-piece_type_at"><strong>piece_type_at</strong></a>(self, square: int) -&gt; Union[int, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;piece&nbsp;type&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-pieces"><strong>pieces</strong></a>(self, piece_type: int, color: bool) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;pieces&nbsp;of&nbsp;the&nbsp;given&nbsp;type&nbsp;and&nbsp;color.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-pieces_mask"><strong>pieces_mask</strong></a>(self, piece_type: int, color: bool) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseBoard-pin"><strong>pin</strong></a>(self, color: bool, square: int) -&gt; 'SquareSet'</dt><dd><tt>Detects&nbsp;an&nbsp;absolute&nbsp;pin&nbsp;(and&nbsp;its&nbsp;direction)&nbsp;of&nbsp;the&nbsp;given&nbsp;square&nbsp;to<br>
+the&nbsp;king&nbsp;of&nbsp;the&nbsp;given&nbsp;color.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>("rnb1k2r/ppp2ppp/5n2/3q4/1b1P4/2N5/PP3PPP/R1BQKBNR&nbsp;w&nbsp;KQkq&nbsp;-&nbsp;3&nbsp;7")<br>
+&gt;&gt;&gt;&nbsp;board.<a href="#BaseBoard-is_pinned">is_pinned</a>(chess.WHITE,&nbsp;chess.C3)<br>
+True<br>
+&gt;&gt;&gt;&nbsp;direction&nbsp;=&nbsp;board.<a href="#BaseBoard-pin">pin</a>(chess.WHITE,&nbsp;chess.C3)<br>
+&gt;&gt;&gt;&nbsp;direction<br>
+<a href="#SquareSet">SquareSet</a>(0x0000_0001_0204_0810)<br>
+&gt;&gt;&gt;&nbsp;print(direction)<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`&nbsp;that&nbsp;mask&nbsp;the&nbsp;rank,<br>
+file&nbsp;or&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;pin.&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;pin,&nbsp;then&nbsp;a&nbsp;mask&nbsp;of&nbsp;the<br>
+entire&nbsp;board&nbsp;is&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-pin_mask"><strong>pin_mask</strong></a>(self, color: bool, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="BaseBoard-remove_piece_at"><strong>remove_piece_at</strong></a>(self, square: int) -&gt; Union[chess.Piece, NoneType]</dt><dd><tt>Removes&nbsp;the&nbsp;piece&nbsp;from&nbsp;the&nbsp;given&nbsp;square.&nbsp;Returns&nbsp;the<br>
+:class:`~chess.<a href="#Piece">Piece</a>`&nbsp;or&nbsp;``None``&nbsp;if&nbsp;the&nbsp;square&nbsp;was&nbsp;already&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-reset_board"><strong>reset_board</strong></a>(self) -&gt; None</dt><dd><tt>Resets&nbsp;piece&nbsp;positions&nbsp;to&nbsp;the&nbsp;starting&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-set_board_fen"><strong>set_board_fen</strong></a>(self, fen: str) -&gt; None</dt><dd><tt>Parses&nbsp;a&nbsp;FEN&nbsp;and&nbsp;sets&nbsp;the&nbsp;board&nbsp;from&nbsp;it.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;FEN&nbsp;string&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-set_chess960_pos"><strong>set_chess960_pos</strong></a>(self, sharnagl: int) -&gt; None</dt><dd><tt>Sets&nbsp;up&nbsp;a&nbsp;Chess960&nbsp;starting&nbsp;position&nbsp;given&nbsp;its&nbsp;index&nbsp;between&nbsp;0&nbsp;and&nbsp;959.<br>
+Also&nbsp;see&nbsp;:func:`~chess.<a href="#BaseBoard">BaseBoard</a>.<a href="#BaseBoard-from_chess960_pos">from_chess960_pos</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-set_piece_at"><strong>set_piece_at</strong></a>(self, square: int, piece: Union[chess.Piece, NoneType], promoted: bool = False) -&gt; None</dt><dd><tt>Sets&nbsp;a&nbsp;piece&nbsp;at&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+An&nbsp;existing&nbsp;piece&nbsp;is&nbsp;replaced.&nbsp;Setting&nbsp;*piece*&nbsp;to&nbsp;``None``&nbsp;is<br>
+equivalent&nbsp;to&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#BaseBoard-remove_piece_at">remove_piece_at</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-set_piece_map"><strong>set_piece_map</strong></a>(self, pieces: Mapping[int, chess.Piece]) -&gt; None</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;board&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;:class:`pieces&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`<br>
+by&nbsp;square&nbsp;index.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-transform"><strong>transform</strong></a>(self: ~BaseBoardT, f: Callable[[int], int]) -&gt; ~BaseBoardT</dt><dd><tt>Returns&nbsp;a&nbsp;transformed&nbsp;copy&nbsp;of&nbsp;the&nbsp;board&nbsp;by&nbsp;applying&nbsp;a&nbsp;bitboard<br>
+transformation&nbsp;function.<br>
+&nbsp;<br>
+Available&nbsp;transformations&nbsp;include&nbsp;:func:`chess.<a href="#-flip_vertical">flip_vertical</a>()`,<br>
+:func:`chess.<a href="#-flip_horizontal">flip_horizontal</a>()`,&nbsp;:func:`chess.<a href="#-flip_diagonal">flip_diagonal</a>()`,<br>
+:func:`chess.<a href="#-flip_anti_diagonal">flip_anti_diagonal</a>()`,&nbsp;:func:`chess.<a href="#-shift_down">shift_down</a>()`,<br>
+:func:`chess.<a href="#-shift_up">shift_up</a>()`,&nbsp;:func:`chess.<a href="#-shift_left">shift_left</a>()`,&nbsp;and<br>
+:func:`chess.<a href="#-shift_right">shift_right</a>()`.<br>
+&nbsp;<br>
+Alternatively,&nbsp;:func:`~chess.<a href="#BaseBoard">BaseBoard</a>.<a href="#BaseBoard-apply_transform">apply_transform</a>()`&nbsp;can&nbsp;be&nbsp;used<br>
+to&nbsp;apply&nbsp;the&nbsp;transformation&nbsp;in&nbsp;place.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-unicode"><strong>unicode</strong></a>(self, *, invert_color: bool = False, borders: bool = False, empty_square: str = '⭘') -&gt; str</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;board&nbsp;with&nbsp;Unicode&nbsp;pieces.<br>
+Useful&nbsp;for&nbsp;pretty-printing&nbsp;to&nbsp;a&nbsp;terminal.<br>
+&nbsp;<br>
+:param&nbsp;invert_color:&nbsp;Invert&nbsp;color&nbsp;of&nbsp;the&nbsp;Unicode&nbsp;pieces.<br>
+:param&nbsp;borders:&nbsp;Show&nbsp;borders&nbsp;and&nbsp;a&nbsp;coordinate&nbsp;margin.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="BaseBoard-empty"><strong>empty</strong></a>() -&gt; ~BaseBoardT<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;empty&nbsp;board.&nbsp;Also&nbsp;see<br>
+:func:`~chess.<a href="#BaseBoard">BaseBoard</a>.<a href="#BaseBoard-clear_board">clear_board</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="BaseBoard-from_chess960_pos"><strong>from_chess960_pos</strong></a>(sharnagl: int) -&gt; ~BaseBoardT<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;board,&nbsp;initialized&nbsp;with&nbsp;a&nbsp;Chess960&nbsp;starting&nbsp;position.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;random<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>.<a href="#BaseBoard-from_chess960_pos">from_chess960_pos</a>(random.randint(0,&nbsp;959))</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Board">class <strong>Board</strong></a>(<a href="chess.html#BaseBoard">BaseBoard</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Board">Board</a>(fen:&nbsp;Union[str,&nbsp;NoneType]&nbsp;=&nbsp;'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR&nbsp;w&nbsp;KQkq&nbsp;-&nbsp;0&nbsp;1',&nbsp;*,&nbsp;chess960:&nbsp;bool&nbsp;=&nbsp;False)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;:class:`~chess.<a href="#BaseBoard">BaseBoard</a>`,&nbsp;additional&nbsp;information&nbsp;representing<br>
+a&nbsp;chess&nbsp;position,&nbsp;and&nbsp;a&nbsp;:data:`move&nbsp;stack&nbsp;&lt;chess.<a href="#Board">Board</a>.move_stack&gt;`.<br>
+&nbsp;<br>
+Provides&nbsp;:data:`move&nbsp;generation&nbsp;&lt;chess.<a href="#Board">Board</a>.legal_moves&gt;`,&nbsp;validation,<br>
+:func:`parsing&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-parse_san">parse_san</a>()&gt;`,&nbsp;attack&nbsp;generation,<br>
+:func:`game&nbsp;end&nbsp;detection&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_game_over">is_game_over</a>()&gt;`,<br>
+and&nbsp;the&nbsp;capability&nbsp;to&nbsp;:func:`make&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-push">push</a>()&gt;`&nbsp;and<br>
+:func:`unmake&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-pop">pop</a>()&gt;`&nbsp;moves.<br>
+&nbsp;<br>
+The&nbsp;board&nbsp;is&nbsp;initialized&nbsp;to&nbsp;the&nbsp;standard&nbsp;chess&nbsp;starting&nbsp;position,<br>
+unless&nbsp;otherwise&nbsp;specified&nbsp;in&nbsp;the&nbsp;optional&nbsp;*fen*&nbsp;argument.<br>
+If&nbsp;*fen*&nbsp;is&nbsp;``None``,&nbsp;an&nbsp;empty&nbsp;board&nbsp;is&nbsp;created.<br>
+&nbsp;<br>
+Optionally&nbsp;supports&nbsp;*chess960*.&nbsp;In&nbsp;Chess960,&nbsp;castling&nbsp;moves&nbsp;are&nbsp;encoded<br>
+by&nbsp;a&nbsp;king&nbsp;move&nbsp;to&nbsp;the&nbsp;corresponding&nbsp;rook&nbsp;square.<br>
+Use&nbsp;:func:`chess.<a href="#Board">Board</a>.<a href="#Board-from_chess960_pos">from_chess960_pos</a>()`&nbsp;to&nbsp;create&nbsp;a&nbsp;board&nbsp;with&nbsp;one<br>
+of&nbsp;the&nbsp;Chess960&nbsp;starting&nbsp;positions.<br>
+&nbsp;<br>
+It's&nbsp;safe&nbsp;to&nbsp;set&nbsp;:data:`~<a href="#Board">Board</a>.turn`,&nbsp;:data:`~<a href="#Board">Board</a>.castling_rights`,<br>
+:data:`~<a href="#Board">Board</a>.ep_square`,&nbsp;:data:`~<a href="#Board">Board</a>.halfmove_clock`&nbsp;and<br>
+:data:`~<a href="#Board">Board</a>.fullmove_number`&nbsp;directly.<br>
+&nbsp;<br>
+..&nbsp;warning::<br>
+&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;is&nbsp;possible&nbsp;to&nbsp;set&nbsp;up&nbsp;and&nbsp;work&nbsp;with&nbsp;invalid&nbsp;positions.&nbsp;In&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;:class:`~chess.<a href="#Board">Board</a>`&nbsp;implements&nbsp;a&nbsp;kind&nbsp;of&nbsp;"pseudo-chess"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(useful&nbsp;to&nbsp;gracefully&nbsp;handle&nbsp;errors&nbsp;or&nbsp;to&nbsp;implement&nbsp;chess&nbsp;variants).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-is_valid">is_valid</a>()`&nbsp;to&nbsp;detect&nbsp;invalid&nbsp;positions.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="chess.html#Board">Board</a></dd>
+<dd><a href="chess.html#BaseBoard">BaseBoard</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Board-__eq__"><strong>__eq__</strong></a>(self, board: object) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Board-__init__"><strong>__init__</strong></a>(self: ~BoardT, fen: Union[str, NoneType] = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', *, chess960: bool = False) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Board-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Board-apply_transform"><strong>apply_transform</strong></a>(self, f: Callable[[int], int]) -&gt; None</dt></dl>
+
+<dl><dt><a name="Board-can_claim_draw"><strong>can_claim_draw</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;side&nbsp;to&nbsp;move&nbsp;can&nbsp;claim&nbsp;a&nbsp;draw&nbsp;by&nbsp;the&nbsp;fifty-move&nbsp;rule&nbsp;or<br>
+by&nbsp;threefold&nbsp;repetition.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;checking&nbsp;the&nbsp;latter&nbsp;can&nbsp;be&nbsp;slow.</tt></dd></dl>
+
+<dl><dt><a name="Board-can_claim_fifty_moves"><strong>can_claim_fifty_moves</strong></a>(self) -&gt; bool</dt><dd><tt>Draw&nbsp;by&nbsp;the&nbsp;fifty-move&nbsp;rule&nbsp;can&nbsp;be&nbsp;claimed&nbsp;once&nbsp;the&nbsp;clock&nbsp;of&nbsp;halfmoves<br>
+since&nbsp;the&nbsp;last&nbsp;capture&nbsp;or&nbsp;pawn&nbsp;move&nbsp;becomes&nbsp;equal&nbsp;or&nbsp;greater&nbsp;to&nbsp;100<br>
+and&nbsp;the&nbsp;side&nbsp;to&nbsp;move&nbsp;still&nbsp;has&nbsp;a&nbsp;legal&nbsp;move&nbsp;they&nbsp;can&nbsp;make.</tt></dd></dl>
+
+<dl><dt><a name="Board-can_claim_threefold_repetition"><strong>can_claim_threefold_repetition</strong></a>(self) -&gt; bool</dt><dd><tt>Draw&nbsp;by&nbsp;threefold&nbsp;repetition&nbsp;can&nbsp;be&nbsp;claimed&nbsp;if&nbsp;the&nbsp;position&nbsp;on&nbsp;the<br>
+board&nbsp;occured&nbsp;for&nbsp;the&nbsp;third&nbsp;time&nbsp;or&nbsp;if&nbsp;such&nbsp;a&nbsp;repetition&nbsp;is&nbsp;reached<br>
+with&nbsp;one&nbsp;of&nbsp;the&nbsp;possible&nbsp;legal&nbsp;moves.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;checking&nbsp;this&nbsp;can&nbsp;be&nbsp;slow:&nbsp;In&nbsp;the&nbsp;worst&nbsp;case<br>
+scenario,&nbsp;every&nbsp;legal&nbsp;move&nbsp;has&nbsp;to&nbsp;be&nbsp;tested&nbsp;and&nbsp;the&nbsp;entire&nbsp;game&nbsp;has&nbsp;to<br>
+be&nbsp;replayed&nbsp;because&nbsp;there&nbsp;is&nbsp;no&nbsp;incremental&nbsp;transposition&nbsp;table.</tt></dd></dl>
+
+<dl><dt><a name="Board-castling_shredder_fen"><strong>castling_shredder_fen</strong></a>(self) -&gt; str</dt></dl>
+
+<dl><dt><a name="Board-castling_xfen"><strong>castling_xfen</strong></a>(self) -&gt; str</dt></dl>
+
+<dl><dt><a name="Board-checkers"><strong>checkers</strong></a>(self) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;the&nbsp;pieces&nbsp;currently&nbsp;giving&nbsp;check.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="Board-checkers_mask"><strong>checkers_mask</strong></a>(self) -&gt; int</dt></dl>
+
+<dl><dt><a name="Board-chess960_pos"><strong>chess960_pos</strong></a>(self, *, ignore_turn: bool = False, ignore_castling: bool = False, ignore_counters: bool = True) -&gt; Union[int, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;Chess960&nbsp;starting&nbsp;position&nbsp;index&nbsp;between&nbsp;0&nbsp;and&nbsp;956<br>
+or&nbsp;``None``&nbsp;if&nbsp;the&nbsp;current&nbsp;position&nbsp;is&nbsp;not&nbsp;a&nbsp;Chess960&nbsp;starting<br>
+position.<br>
+&nbsp;<br>
+By&nbsp;default&nbsp;white&nbsp;to&nbsp;move&nbsp;(**ignore_turn**)&nbsp;and&nbsp;full&nbsp;castling&nbsp;rights<br>
+(**ignore_castling**)&nbsp;are&nbsp;required,&nbsp;but&nbsp;move&nbsp;counters<br>
+(**ignore_counters**)&nbsp;are&nbsp;ignored.</tt></dd></dl>
+
+<dl><dt><a name="Board-clean_castling_rights"><strong>clean_castling_rights</strong></a>(self) -&gt; int</dt><dd><tt>Returns&nbsp;valid&nbsp;castling&nbsp;rights&nbsp;filtered&nbsp;from<br>
+:data:`~chess.<a href="#Board">Board</a>.castling_rights`.</tt></dd></dl>
+
+<dl><dt><a name="Board-clear"><strong>clear</strong></a>(self) -&gt; None</dt><dd><tt>Clears&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+Resets&nbsp;move&nbsp;stack&nbsp;and&nbsp;move&nbsp;counters.&nbsp;The&nbsp;side&nbsp;to&nbsp;move&nbsp;is&nbsp;white.&nbsp;There<br>
+are&nbsp;no&nbsp;rooks&nbsp;or&nbsp;kings,&nbsp;so&nbsp;castling&nbsp;rights&nbsp;are&nbsp;removed.<br>
+&nbsp;<br>
+In&nbsp;order&nbsp;to&nbsp;be&nbsp;in&nbsp;a&nbsp;valid&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-status">status</a>()`,&nbsp;at&nbsp;least&nbsp;kings<br>
+need&nbsp;to&nbsp;be&nbsp;put&nbsp;on&nbsp;the&nbsp;board.</tt></dd></dl>
+
+<dl><dt><a name="Board-clear_board"><strong>clear_board</strong></a>(self) -&gt; None</dt><dd><tt>Clears&nbsp;the&nbsp;board.</tt></dd></dl>
+
+<dl><dt><a name="Board-clear_stack"><strong>clear_stack</strong></a>(self) -&gt; None</dt><dd><tt>Clears&nbsp;the&nbsp;move&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="Board-copy"><strong>copy</strong></a>(self: ~BoardT, *, stack: Union[bool, int] = True) -&gt; ~BoardT</dt><dd><tt>Creates&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+Defaults&nbsp;to&nbsp;copying&nbsp;the&nbsp;entire&nbsp;move&nbsp;stack.&nbsp;Alternatively,&nbsp;*stack*&nbsp;can<br>
+be&nbsp;``False``,&nbsp;or&nbsp;an&nbsp;integer&nbsp;to&nbsp;copy&nbsp;a&nbsp;limited&nbsp;number&nbsp;of&nbsp;moves.</tt></dd></dl>
+
+<dl><dt><a name="Board-epd"><strong>epd</strong></a>(self, *, shredder: bool = False, en_passant: str = 'legal', promoted: Union[bool, NoneType] = None, **operations: Union[NoneType, str, int, float, chess.Move, Iterable[chess.Move]]) -&gt; str</dt><dd><tt>Gets&nbsp;an&nbsp;EPD&nbsp;representation&nbsp;of&nbsp;the&nbsp;current&nbsp;position.<br>
+&nbsp;<br>
+See&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-fen">fen</a>()`&nbsp;for&nbsp;FEN&nbsp;formatting&nbsp;options&nbsp;(*shredder*,<br>
+*ep_square*&nbsp;and&nbsp;*promoted*).<br>
+&nbsp;<br>
+EPD&nbsp;operations&nbsp;can&nbsp;be&nbsp;given&nbsp;as&nbsp;keyword&nbsp;arguments.&nbsp;Supported&nbsp;operands<br>
+are&nbsp;strings,&nbsp;integers,&nbsp;finite&nbsp;floats,&nbsp;legal&nbsp;moves&nbsp;and&nbsp;``None``.<br>
+Aditionally,&nbsp;the&nbsp;operation&nbsp;``pv``&nbsp;also&nbsp;accepts&nbsp;a&nbsp;legal&nbsp;variation&nbsp;as<br>
+a&nbsp;list&nbsp;of&nbsp;moves.&nbsp;The&nbsp;operations&nbsp;``bm``&nbsp;and&nbsp;``bm``&nbsp;also&nbsp;accept&nbsp;a&nbsp;list&nbsp;of<br>
+legal&nbsp;moves&nbsp;in&nbsp;the&nbsp;current&nbsp;position.<br>
+&nbsp;<br>
+The&nbsp;name&nbsp;of&nbsp;the&nbsp;field&nbsp;cannot&nbsp;be&nbsp;a&nbsp;lone&nbsp;dash&nbsp;and&nbsp;cannot&nbsp;contain&nbsp;spaces,<br>
+newlines,&nbsp;carriage&nbsp;returns&nbsp;or&nbsp;tabs.<br>
+&nbsp;<br>
+*hmvc*&nbsp;and&nbsp;*fmvc*&nbsp;are&nbsp;not&nbsp;included&nbsp;by&nbsp;default.&nbsp;You&nbsp;can&nbsp;use:<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>()<br>
+&gt;&gt;&gt;&nbsp;board.<a href="#Board-epd">epd</a>(hmvc=board.halfmove_clock,&nbsp;fmvc=board.fullmove_number)<br>
+'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR&nbsp;w&nbsp;KQkq&nbsp;-&nbsp;hmvc&nbsp;0;&nbsp;fmvc&nbsp;1;'</tt></dd></dl>
+
+<dl><dt><a name="Board-fen"><strong>fen</strong></a>(self, *, shredder: bool = False, en_passant: str = 'legal', promoted: Union[bool, NoneType] = None) -&gt; str</dt><dd><tt>Gets&nbsp;a&nbsp;FEN&nbsp;representation&nbsp;of&nbsp;the&nbsp;position.<br>
+&nbsp;<br>
+A&nbsp;FEN&nbsp;string&nbsp;(e.g.,<br>
+``rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR&nbsp;w&nbsp;KQkq&nbsp;-&nbsp;0&nbsp;1``)&nbsp;consists<br>
+of&nbsp;the&nbsp;position&nbsp;part&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-board_fen">board_fen</a>()`,&nbsp;the<br>
+:data:`~chess.<a href="#Board">Board</a>.turn`,&nbsp;the&nbsp;castling&nbsp;part<br>
+(:data:`~chess.<a href="#Board">Board</a>.castling_rights`),<br>
+the&nbsp;en&nbsp;passant&nbsp;square&nbsp;(:data:`~chess.<a href="#Board">Board</a>.ep_square`),<br>
+the&nbsp;:data:`~chess.<a href="#Board">Board</a>.halfmove_clock`<br>
+and&nbsp;the&nbsp;:data:`~chess.<a href="#Board">Board</a>.fullmove_number`.<br>
+&nbsp;<br>
+:param&nbsp;shredder:&nbsp;Use&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-castling_shredder_fen">castling_shredder_fen</a>()`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;encode&nbsp;castling&nbsp;rights&nbsp;by&nbsp;the&nbsp;file&nbsp;of&nbsp;the&nbsp;rook<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(like&nbsp;``HAha``)&nbsp;instead&nbsp;of&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-castling_xfen">castling_xfen</a>()`&nbsp;(like&nbsp;``KQkq``).<br>
+:param&nbsp;en_passant:&nbsp;By&nbsp;default,&nbsp;only&nbsp;fully&nbsp;legal&nbsp;en&nbsp;passant&nbsp;squares<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;included&nbsp;(:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-has_legal_en_passant">has_legal_en_passant</a>()`).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pass&nbsp;``fen``&nbsp;to&nbsp;strictly&nbsp;follow&nbsp;the&nbsp;FEN&nbsp;specification<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(always&nbsp;include&nbsp;the&nbsp;en&nbsp;passant&nbsp;square&nbsp;after&nbsp;a&nbsp;two-step&nbsp;pawn&nbsp;move)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;``xfen``&nbsp;to&nbsp;follow&nbsp;the&nbsp;X-FEN&nbsp;specification<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-has_pseudo_legal_en_passant">has_pseudo_legal_en_passant</a>()`).<br>
+:param&nbsp;promoted:&nbsp;Mark&nbsp;promoted&nbsp;pieces&nbsp;like&nbsp;``Q~``.&nbsp;By&nbsp;default,&nbsp;this&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;only&nbsp;enabled&nbsp;in&nbsp;chess&nbsp;variants&nbsp;where&nbsp;this&nbsp;is&nbsp;relevant.</tt></dd></dl>
+
+<dl><dt><a name="Board-find_move"><strong>find_move</strong></a>(self, from_square: int, to_square: int, promotion: Union[int, NoneType] = None) -&gt; chess.Move</dt><dd><tt>Finds&nbsp;a&nbsp;matching&nbsp;legal&nbsp;move&nbsp;for&nbsp;an&nbsp;origin&nbsp;square,&nbsp;a&nbsp;target&nbsp;square&nbsp;and<br>
+an&nbsp;optional&nbsp;promotion&nbsp;piece&nbsp;type.<br>
+&nbsp;<br>
+For&nbsp;pawn&nbsp;moves&nbsp;to&nbsp;the&nbsp;backrank,&nbsp;the&nbsp;promotion&nbsp;piece&nbsp;type&nbsp;defaults&nbsp;to<br>
+:data:`chess.QUEEN`,&nbsp;unless&nbsp;otherwise&nbsp;specified.<br>
+&nbsp;<br>
+Castling&nbsp;moves&nbsp;are&nbsp;normalized&nbsp;to&nbsp;king&nbsp;moves&nbsp;by&nbsp;two&nbsp;steps,&nbsp;except&nbsp;in<br>
+Chess960.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;no&nbsp;matching&nbsp;legal&nbsp;move&nbsp;is&nbsp;found.</tt></dd></dl>
+
+<dl><dt><a name="Board-generate_castling_moves"><strong>generate_castling_moves</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_legal_captures"><strong>generate_legal_captures</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_legal_ep"><strong>generate_legal_ep</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_legal_moves"><strong>generate_legal_moves</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_pseudo_legal_captures"><strong>generate_pseudo_legal_captures</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_pseudo_legal_ep"><strong>generate_pseudo_legal_ep</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-generate_pseudo_legal_moves"><strong>generate_pseudo_legal_moves</strong></a>(self, from_mask: int = 18446744073709551615, to_mask: int = 18446744073709551615) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="Board-gives_check"><strong>gives_check</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Probes&nbsp;if&nbsp;the&nbsp;given&nbsp;move&nbsp;would&nbsp;put&nbsp;the&nbsp;opponent&nbsp;in&nbsp;check.&nbsp;The&nbsp;move<br>
+must&nbsp;be&nbsp;at&nbsp;least&nbsp;pseudo-legal.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_castling_rights"><strong>has_castling_rights</strong></a>(self, color: bool) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;side&nbsp;has&nbsp;castling&nbsp;rights.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_chess960_castling_rights"><strong>has_chess960_castling_rights</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;there&nbsp;are&nbsp;castling&nbsp;rights&nbsp;that&nbsp;are&nbsp;only&nbsp;possible&nbsp;in&nbsp;Chess960.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_insufficient_material"><strong>has_insufficient_material</strong></a>(self, color: bool) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;*color*&nbsp;has&nbsp;insufficient&nbsp;winning&nbsp;material.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;return&nbsp;``False``&nbsp;if&nbsp;*color*&nbsp;can&nbsp;still&nbsp;win&nbsp;the<br>
+game.<br>
+&nbsp;<br>
+The&nbsp;converse&nbsp;does&nbsp;not&nbsp;necessarily&nbsp;hold:<br>
+The&nbsp;implementation&nbsp;only&nbsp;looks&nbsp;at&nbsp;the&nbsp;material,&nbsp;including&nbsp;the&nbsp;colors<br>
+of&nbsp;bishops,&nbsp;but&nbsp;not&nbsp;considering&nbsp;piece&nbsp;positions.&nbsp;So&nbsp;fortress<br>
+positions&nbsp;or&nbsp;positions&nbsp;with&nbsp;forced&nbsp;lines&nbsp;may&nbsp;return&nbsp;``False``,&nbsp;even<br>
+though&nbsp;there&nbsp;is&nbsp;no&nbsp;possible&nbsp;winning&nbsp;line.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_kingside_castling_rights"><strong>has_kingside_castling_rights</strong></a>(self, color: bool) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;side&nbsp;has&nbsp;kingside&nbsp;(that&nbsp;is&nbsp;h-side&nbsp;in&nbsp;Chess960)<br>
+castling&nbsp;rights.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_legal_en_passant"><strong>has_legal_en_passant</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;there&nbsp;is&nbsp;a&nbsp;legal&nbsp;en&nbsp;passant&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_pseudo_legal_en_passant"><strong>has_pseudo_legal_en_passant</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;there&nbsp;is&nbsp;a&nbsp;pseudo-legal&nbsp;en&nbsp;passant&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="Board-has_queenside_castling_rights"><strong>has_queenside_castling_rights</strong></a>(self, color: bool) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;side&nbsp;has&nbsp;queenside&nbsp;(that&nbsp;is&nbsp;a-side&nbsp;in&nbsp;Chess960)<br>
+castling&nbsp;rights.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_capture"><strong>is_capture</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;a&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_castling"><strong>is_castling</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;a&nbsp;castling&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_check"><strong>is_check</strong></a>(self) -&gt; bool</dt><dd><tt>Tests&nbsp;if&nbsp;the&nbsp;current&nbsp;side&nbsp;to&nbsp;move&nbsp;is&nbsp;in&nbsp;check.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_checkmate"><strong>is_checkmate</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;position&nbsp;is&nbsp;a&nbsp;checkmate.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_en_passant"><strong>is_en_passant</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;an&nbsp;en&nbsp;passant&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_fivefold_repetition"><strong>is_fivefold_repetition</strong></a>(self) -&gt; bool</dt><dd><tt>Since&nbsp;the&nbsp;1st&nbsp;of&nbsp;July&nbsp;2014&nbsp;a&nbsp;game&nbsp;is&nbsp;automatically&nbsp;drawn&nbsp;(without<br>
+a&nbsp;claim&nbsp;by&nbsp;one&nbsp;of&nbsp;the&nbsp;players)&nbsp;if&nbsp;a&nbsp;position&nbsp;occurs&nbsp;for&nbsp;the&nbsp;fifth&nbsp;time.<br>
+Originally&nbsp;this&nbsp;had&nbsp;to&nbsp;occur&nbsp;on&nbsp;consecutive&nbsp;alternating&nbsp;moves,&nbsp;but<br>
+this&nbsp;has&nbsp;since&nbsp;been&nbsp;revised.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_game_over"><strong>is_game_over</strong></a>(self, *, claim_draw: bool = False) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;game&nbsp;is&nbsp;over&nbsp;due&nbsp;to<br>
+:func:`checkmate&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_checkmate">is_checkmate</a>()&gt;`,<br>
+:func:`stalemate&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_stalemate">is_stalemate</a>()&gt;`,<br>
+:func:`insufficient&nbsp;material&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_insufficient_material">is_insufficient_material</a>()&gt;`,<br>
+the&nbsp;:func:`seventyfive-move&nbsp;rule&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_seventyfive_moves">is_seventyfive_moves</a>()&gt;`,<br>
+:func:`fivefold&nbsp;repetition&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_fivefold_repetition">is_fivefold_repetition</a>()&gt;`<br>
+or&nbsp;a&nbsp;:func:`variant&nbsp;end&nbsp;condition&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_variant_end">is_variant_end</a>()&gt;`.<br>
+&nbsp;<br>
+The&nbsp;game&nbsp;is&nbsp;not&nbsp;considered&nbsp;to&nbsp;be&nbsp;over&nbsp;by&nbsp;the<br>
+:func:`fifty-move&nbsp;rule&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-can_claim_fifty_moves">can_claim_fifty_moves</a>()&gt;`&nbsp;or<br>
+:func:`threefold&nbsp;repetition&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-can_claim_threefold_repetition">can_claim_threefold_repetition</a>()&gt;`,<br>
+unless&nbsp;*claim_draw*&nbsp;is&nbsp;given.&nbsp;Note&nbsp;that&nbsp;checking&nbsp;the&nbsp;latter&nbsp;can&nbsp;be<br>
+slow.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_insufficient_material"><strong>is_insufficient_material</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;neither&nbsp;side&nbsp;has&nbsp;sufficient&nbsp;winning&nbsp;material<br>
+(:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-has_insufficient_material">has_insufficient_material</a>()`).</tt></dd></dl>
+
+<dl><dt><a name="Board-is_into_check"><strong>is_into_check</strong></a>(self, move: chess.Move) -&gt; bool</dt></dl>
+
+<dl><dt><a name="Board-is_irreversible"><strong>is_irreversible</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;irreversible.<br>
+&nbsp;<br>
+In&nbsp;standard&nbsp;chess,&nbsp;pawn&nbsp;moves,&nbsp;captures,&nbsp;moves&nbsp;that&nbsp;destroy&nbsp;castling<br>
+rights&nbsp;and&nbsp;moves&nbsp;that&nbsp;cede&nbsp;en&nbsp;passant&nbsp;are&nbsp;irreversible.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;has&nbsp;false-negatives&nbsp;with&nbsp;forced&nbsp;lines.&nbsp;For&nbsp;example,&nbsp;a&nbsp;check<br>
+that&nbsp;will&nbsp;force&nbsp;the&nbsp;king&nbsp;to&nbsp;lose&nbsp;castling&nbsp;rights&nbsp;is&nbsp;not&nbsp;considered<br>
+irreversible.&nbsp;Only&nbsp;the&nbsp;actual&nbsp;king&nbsp;move&nbsp;is.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_kingside_castling"><strong>is_kingside_castling</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;a&nbsp;kingside&nbsp;castling&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_legal"><strong>is_legal</strong></a>(self, move: chess.Move) -&gt; bool</dt></dl>
+
+<dl><dt><a name="Board-is_pseudo_legal"><strong>is_pseudo_legal</strong></a>(self, move: chess.Move) -&gt; bool</dt></dl>
+
+<dl><dt><a name="Board-is_queenside_castling"><strong>is_queenside_castling</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;a&nbsp;queenside&nbsp;castling&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_repetition"><strong>is_repetition</strong></a>(self, count: int = 3) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;position&nbsp;has&nbsp;repeated&nbsp;3&nbsp;(or&nbsp;a&nbsp;given&nbsp;number&nbsp;of)<br>
+times.<br>
+&nbsp;<br>
+Unlike&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-can_claim_threefold_repetition">can_claim_threefold_repetition</a>()`,<br>
+this&nbsp;does&nbsp;not&nbsp;consider&nbsp;a&nbsp;repetition&nbsp;that&nbsp;can&nbsp;be&nbsp;played&nbsp;on&nbsp;the&nbsp;next<br>
+move.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;checking&nbsp;this&nbsp;can&nbsp;be&nbsp;slow:&nbsp;In&nbsp;the&nbsp;worst&nbsp;case,&nbsp;the&nbsp;entire<br>
+game&nbsp;has&nbsp;to&nbsp;be&nbsp;replayed&nbsp;because&nbsp;there&nbsp;is&nbsp;no&nbsp;incremental&nbsp;transposition<br>
+table.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_seventyfive_moves"><strong>is_seventyfive_moves</strong></a>(self) -&gt; bool</dt><dd><tt>Since&nbsp;the&nbsp;1st&nbsp;of&nbsp;July&nbsp;2014,&nbsp;a&nbsp;game&nbsp;is&nbsp;automatically&nbsp;drawn&nbsp;(without<br>
+a&nbsp;claim&nbsp;by&nbsp;one&nbsp;of&nbsp;the&nbsp;players)&nbsp;if&nbsp;the&nbsp;half-move&nbsp;clock&nbsp;since&nbsp;a&nbsp;capture<br>
+or&nbsp;pawn&nbsp;move&nbsp;is&nbsp;equal&nbsp;to&nbsp;or&nbsp;greater&nbsp;than&nbsp;150.&nbsp;Other&nbsp;means&nbsp;to&nbsp;end&nbsp;a&nbsp;game<br>
+take&nbsp;precedence.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_stalemate"><strong>is_stalemate</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;position&nbsp;is&nbsp;a&nbsp;stalemate.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_valid"><strong>is_valid</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;some&nbsp;basic&nbsp;validity&nbsp;requirements.<br>
+&nbsp;<br>
+See&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-status">status</a>()`&nbsp;for&nbsp;details.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_variant_draw"><strong>is_variant_draw</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;a&nbsp;variant-specific&nbsp;drawing&nbsp;condition&nbsp;is&nbsp;fulfilled.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_variant_end"><strong>is_variant_end</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;game&nbsp;is&nbsp;over&nbsp;due&nbsp;to&nbsp;a&nbsp;special&nbsp;variant&nbsp;end&nbsp;condition.<br>
+&nbsp;<br>
+Note,&nbsp;for&nbsp;example,&nbsp;that&nbsp;stalemate&nbsp;is&nbsp;not&nbsp;considered&nbsp;a&nbsp;variant-specific<br>
+end&nbsp;condition&nbsp;(this&nbsp;method&nbsp;will&nbsp;return&nbsp;``False``),&nbsp;yet&nbsp;it&nbsp;can&nbsp;have&nbsp;a<br>
+special&nbsp;**result**&nbsp;in&nbsp;suicide&nbsp;chess&nbsp;(any&nbsp;of<br>
+:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-is_variant_loss">is_variant_loss</a>()`,<br>
+:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-is_variant_win">is_variant_win</a>()`,<br>
+:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-is_variant_draw">is_variant_draw</a>()`&nbsp;might&nbsp;return&nbsp;``True``).</tt></dd></dl>
+
+<dl><dt><a name="Board-is_variant_loss"><strong>is_variant_loss</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;side&nbsp;to&nbsp;move&nbsp;lost&nbsp;due&nbsp;to&nbsp;a&nbsp;variant-specific<br>
+condition.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_variant_win"><strong>is_variant_win</strong></a>(self) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;side&nbsp;to&nbsp;move&nbsp;won&nbsp;due&nbsp;to&nbsp;a&nbsp;variant-specific<br>
+condition.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_zeroing"><strong>is_zeroing</strong></a>(self, move: chess.Move) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;pseudo-legal&nbsp;move&nbsp;is&nbsp;a&nbsp;capture&nbsp;or&nbsp;pawn&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-lan"><strong>lan</strong></a>(self, move: chess.Move) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;long&nbsp;algebraic&nbsp;notation&nbsp;of&nbsp;the&nbsp;given&nbsp;move&nbsp;in&nbsp;the&nbsp;context&nbsp;of<br>
+the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Board-mirror"><strong>mirror</strong></a>(self: ~BoardT) -&gt; ~BoardT</dt><dd><tt>Returns&nbsp;a&nbsp;mirrored&nbsp;copy&nbsp;of&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+The&nbsp;board&nbsp;is&nbsp;mirrored&nbsp;vertically&nbsp;and&nbsp;piece&nbsp;colors&nbsp;are&nbsp;swapped,&nbsp;so&nbsp;that<br>
+the&nbsp;position&nbsp;is&nbsp;equivalent&nbsp;modulo&nbsp;color.</tt></dd></dl>
+
+<dl><dt><a name="Board-parse_san"><strong>parse_san</strong></a>(self, san: str) -&gt; chess.Move</dt><dd><tt>Uses&nbsp;the&nbsp;current&nbsp;position&nbsp;as&nbsp;the&nbsp;context&nbsp;to&nbsp;parse&nbsp;a&nbsp;move&nbsp;in&nbsp;standard<br>
+algebraic&nbsp;notation&nbsp;and&nbsp;returns&nbsp;the&nbsp;corresponding&nbsp;move&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+Ambiguous&nbsp;moves&nbsp;are&nbsp;rejected.&nbsp;Overspecified&nbsp;moves&nbsp;(including&nbsp;long<br>
+algebraic&nbsp;notation)&nbsp;are&nbsp;accepted.<br>
+&nbsp;<br>
+The&nbsp;returned&nbsp;move&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;either&nbsp;legal&nbsp;or&nbsp;a&nbsp;null&nbsp;move.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;SAN&nbsp;is&nbsp;invalid,&nbsp;illegal&nbsp;or&nbsp;ambiguous.</tt></dd></dl>
+
+<dl><dt><a name="Board-parse_uci"><strong>parse_uci</strong></a>(self, uci: str) -&gt; chess.Move</dt><dd><tt>Parses&nbsp;the&nbsp;given&nbsp;move&nbsp;in&nbsp;UCI&nbsp;notation.<br>
+&nbsp;<br>
+Supports&nbsp;both&nbsp;Chess960&nbsp;and&nbsp;standard&nbsp;UCI&nbsp;notation.<br>
+&nbsp;<br>
+The&nbsp;returned&nbsp;move&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;either&nbsp;legal&nbsp;or&nbsp;a&nbsp;null&nbsp;move.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;move&nbsp;is&nbsp;invalid&nbsp;or&nbsp;illegal&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;position&nbsp;(but&nbsp;not&nbsp;a&nbsp;null&nbsp;move).</tt></dd></dl>
+
+<dl><dt><a name="Board-parse_xboard"><strong>parse_xboard</strong></a>(self, xboard: str) -&gt; chess.Move</dt></dl>
+
+<dl><dt><a name="Board-peek"><strong>peek</strong></a>(self) -&gt; chess.Move</dt><dd><tt>Gets&nbsp;the&nbsp;last&nbsp;move&nbsp;from&nbsp;the&nbsp;move&nbsp;stack.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`IndexError`&nbsp;if&nbsp;the&nbsp;move&nbsp;stack&nbsp;is&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="Board-pop"><strong>pop</strong></a>(self: ~BoardT) -&gt; chess.Move</dt><dd><tt>Restores&nbsp;the&nbsp;previous&nbsp;position&nbsp;and&nbsp;returns&nbsp;the&nbsp;last&nbsp;move&nbsp;from&nbsp;the&nbsp;stack.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`IndexError`&nbsp;if&nbsp;the&nbsp;stack&nbsp;is&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="Board-push"><strong>push</strong></a>(self: ~BoardT, move: chess.Move) -&gt; None</dt><dd><tt>Updates&nbsp;the&nbsp;position&nbsp;with&nbsp;the&nbsp;given&nbsp;*move*&nbsp;and&nbsp;puts&nbsp;it&nbsp;onto&nbsp;the<br>
+move&nbsp;stack.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>()<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;Nf3&nbsp;=&nbsp;chess.<a href="#Move">Move</a>.from_uci("g1f3")<br>
+&gt;&gt;&gt;&nbsp;board.<a href="#Board-push">push</a>(Nf3)&nbsp;&nbsp;#&nbsp;Make&nbsp;the&nbsp;move<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;board.<a href="#Board-pop">pop</a>()&nbsp;&nbsp;#&nbsp;Unmake&nbsp;the&nbsp;last&nbsp;move<br>
+<a href="#Move">Move</a>.from_uci('g1f3')<br>
+&nbsp;<br>
+Null&nbsp;moves&nbsp;just&nbsp;increment&nbsp;the&nbsp;move&nbsp;counters,&nbsp;switch&nbsp;turns&nbsp;and&nbsp;forfeit<br>
+en&nbsp;passant&nbsp;capturing.<br>
+&nbsp;<br>
+..&nbsp;warning::<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Moves&nbsp;are&nbsp;not&nbsp;checked&nbsp;for&nbsp;legality.&nbsp;It&nbsp;is&nbsp;the&nbsp;caller's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;responsibility&nbsp;to&nbsp;ensure&nbsp;that&nbsp;the&nbsp;move&nbsp;is&nbsp;at&nbsp;least&nbsp;pseudo-legal&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;null&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-push_san"><strong>push_san</strong></a>(self, san: str) -&gt; chess.Move</dt><dd><tt>Parses&nbsp;a&nbsp;move&nbsp;in&nbsp;standard&nbsp;algebraic&nbsp;notation,&nbsp;makes&nbsp;the&nbsp;move&nbsp;and&nbsp;puts<br>
+it&nbsp;on&nbsp;the&nbsp;the&nbsp;move&nbsp;stack.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;move.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;neither&nbsp;legal&nbsp;nor&nbsp;a&nbsp;null&nbsp;move.</tt></dd></dl>
+
+<dl><dt><a name="Board-push_uci"><strong>push_uci</strong></a>(self, uci: str) -&gt; chess.Move</dt><dd><tt>Parses&nbsp;a&nbsp;move&nbsp;in&nbsp;UCI&nbsp;notation&nbsp;and&nbsp;puts&nbsp;it&nbsp;on&nbsp;the&nbsp;move&nbsp;stack.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;move.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;move&nbsp;is&nbsp;invalid&nbsp;or&nbsp;illegal&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;position&nbsp;(but&nbsp;not&nbsp;a&nbsp;null&nbsp;move).</tt></dd></dl>
+
+<dl><dt><a name="Board-push_xboard"><strong>push_xboard</strong></a>(self, xboard: str) -&gt; chess.Move</dt></dl>
+
+<dl><dt><a name="Board-remove_piece_at"><strong>remove_piece_at</strong></a>(self, square: int) -&gt; Union[chess.Piece, NoneType]</dt><dd><tt>Removes&nbsp;the&nbsp;piece&nbsp;from&nbsp;the&nbsp;given&nbsp;square.&nbsp;Returns&nbsp;the<br>
+:class:`~chess.<a href="#Piece">Piece</a>`&nbsp;or&nbsp;``None``&nbsp;if&nbsp;the&nbsp;square&nbsp;was&nbsp;already&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="Board-reset"><strong>reset</strong></a>(self) -&gt; None</dt><dd><tt>Restores&nbsp;the&nbsp;starting&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Board-reset_board"><strong>reset_board</strong></a>(self) -&gt; None</dt><dd><tt>Resets&nbsp;piece&nbsp;positions&nbsp;to&nbsp;the&nbsp;starting&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Board-result"><strong>result</strong></a>(self, *, claim_draw: bool = False) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;game&nbsp;result.<br>
+&nbsp;<br>
+``1-0``,&nbsp;``0-1``&nbsp;or&nbsp;``1/2-1/2``&nbsp;if&nbsp;the<br>
+:func:`game&nbsp;is&nbsp;over&nbsp;&lt;chess.<a href="#Board">Board</a>.<a href="#Board-is_game_over">is_game_over</a>()&gt;`.&nbsp;Otherwise,&nbsp;the<br>
+result&nbsp;is&nbsp;undetermined:&nbsp;``*``.</tt></dd></dl>
+
+<dl><dt><a name="Board-root"><strong>root</strong></a>(self: ~BoardT) -&gt; ~BoardT</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;root&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Board-san"><strong>san</strong></a>(self, move: chess.Move) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;standard&nbsp;algebraic&nbsp;notation&nbsp;of&nbsp;the&nbsp;given&nbsp;move&nbsp;in&nbsp;the&nbsp;context<br>
+of&nbsp;the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Board-san_and_push"><strong>san_and_push</strong></a>(self, move: chess.Move) -&gt; str</dt></dl>
+
+<dl><dt><a name="Board-set_board_fen"><strong>set_board_fen</strong></a>(self, fen: str) -&gt; None</dt><dd><tt>Parses&nbsp;a&nbsp;FEN&nbsp;and&nbsp;sets&nbsp;the&nbsp;board&nbsp;from&nbsp;it.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;FEN&nbsp;string&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_castling_fen"><strong>set_castling_fen</strong></a>(self, castling_fen: str) -&gt; None</dt><dd><tt>Sets&nbsp;castling&nbsp;rights&nbsp;from&nbsp;a&nbsp;string&nbsp;in&nbsp;FEN&nbsp;notation&nbsp;like&nbsp;``Qqk``.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;castling&nbsp;FEN&nbsp;is&nbsp;syntactically<br>
+&nbsp;&nbsp;&nbsp;&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_chess960_pos"><strong>set_chess960_pos</strong></a>(self, sharnagl: int) -&gt; None</dt><dd><tt>Sets&nbsp;up&nbsp;a&nbsp;Chess960&nbsp;starting&nbsp;position&nbsp;given&nbsp;its&nbsp;index&nbsp;between&nbsp;0&nbsp;and&nbsp;959.<br>
+Also&nbsp;see&nbsp;:func:`~chess.<a href="#BaseBoard">BaseBoard</a>.<a href="#Board-from_chess960_pos">from_chess960_pos</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_epd"><strong>set_epd</strong></a>(self, epd: str) -&gt; Dict[str, Union[NoneType, str, int, float, chess.Move, List[chess.Move]]]</dt><dd><tt>Parses&nbsp;the&nbsp;given&nbsp;EPD&nbsp;string&nbsp;and&nbsp;uses&nbsp;it&nbsp;to&nbsp;set&nbsp;the&nbsp;position.<br>
+&nbsp;<br>
+If&nbsp;present,&nbsp;``hmvc``&nbsp;and&nbsp;``fmvn``&nbsp;are&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;half-move<br>
+clock&nbsp;and&nbsp;the&nbsp;full-move&nbsp;number.&nbsp;Otherwise,&nbsp;``0``&nbsp;and&nbsp;``1``&nbsp;are&nbsp;used.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;parsed&nbsp;operations.&nbsp;Values&nbsp;can&nbsp;be&nbsp;strings,<br>
+integers,&nbsp;floats,&nbsp;move&nbsp;objects,&nbsp;or&nbsp;lists&nbsp;of&nbsp;moves.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;EPD&nbsp;string&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_fen"><strong>set_fen</strong></a>(self, fen: str) -&gt; None</dt><dd><tt>Parses&nbsp;a&nbsp;FEN&nbsp;and&nbsp;sets&nbsp;the&nbsp;position&nbsp;from&nbsp;it.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;FEN&nbsp;string&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_piece_at"><strong>set_piece_at</strong></a>(self, square: int, piece: Union[chess.Piece, NoneType], promoted: bool = False) -&gt; None</dt><dd><tt>Sets&nbsp;a&nbsp;piece&nbsp;at&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+An&nbsp;existing&nbsp;piece&nbsp;is&nbsp;replaced.&nbsp;Setting&nbsp;*piece*&nbsp;to&nbsp;``None``&nbsp;is<br>
+equivalent&nbsp;to&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-remove_piece_at">remove_piece_at</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="Board-set_piece_map"><strong>set_piece_map</strong></a>(self, pieces: Mapping[int, chess.Piece]) -&gt; None</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;board&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;:class:`pieces&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`<br>
+by&nbsp;square&nbsp;index.</tt></dd></dl>
+
+<dl><dt><a name="Board-shredder_fen"><strong>shredder_fen</strong></a>(self, *, en_passant: str = 'legal', promoted: Union[bool, NoneType] = None) -&gt; str</dt></dl>
+
+<dl><dt><a name="Board-status"><strong>status</strong></a>(self) -&gt; chess.Status</dt><dd><tt>Gets&nbsp;a&nbsp;bitmask&nbsp;of&nbsp;possible&nbsp;problems&nbsp;with&nbsp;the&nbsp;position.<br>
+&nbsp;<br>
+:data:`~chess.STATUS_VALID`&nbsp;if&nbsp;all&nbsp;basic&nbsp;validity&nbsp;requirements&nbsp;are&nbsp;met.<br>
+This&nbsp;does&nbsp;not&nbsp;imply&nbsp;that&nbsp;the&nbsp;position&nbsp;is&nbsp;actually&nbsp;reachable&nbsp;with&nbsp;a<br>
+series&nbsp;of&nbsp;legal&nbsp;moves&nbsp;from&nbsp;the&nbsp;starting&nbsp;position.<br>
+&nbsp;<br>
+Otherwise,&nbsp;bitwise&nbsp;combinations&nbsp;of:<br>
+:data:`~chess.STATUS_NO_WHITE_KING`,<br>
+:data:`~chess.STATUS_NO_BLACK_KING`,<br>
+:data:`~chess.STATUS_TOO_MANY_KINGS`,<br>
+:data:`~chess.STATUS_TOO_MANY_WHITE_PAWNS`,<br>
+:data:`~chess.STATUS_TOO_MANY_BLACK_PAWNS`,<br>
+:data:`~chess.STATUS_PAWNS_ON_BACKRANK`,<br>
+:data:`~chess.STATUS_TOO_MANY_WHITE_PIECES`,<br>
+:data:`~chess.STATUS_TOO_MANY_BLACK_PIECES`,<br>
+:data:`~chess.STATUS_BAD_CASTLING_RIGHTS`,<br>
+:data:`~chess.STATUS_INVALID_EP_SQUARE`,<br>
+:data:`~chess.STATUS_OPPOSITE_CHECK`,<br>
+:data:`~chess.STATUS_EMPTY`,<br>
+:data:`~chess.STATUS_RACE_CHECK`,<br>
+:data:`~chess.STATUS_RACE_OVER`,<br>
+:data:`~chess.STATUS_RACE_MATERIAL`,<br>
+:data:`~chess.STATUS_TOO_MANY_CHECKERS`.</tt></dd></dl>
+
+<dl><dt><a name="Board-transform"><strong>transform</strong></a>(self: ~BoardT, f: Callable[[int], int]) -&gt; ~BoardT</dt><dd><tt>Returns&nbsp;a&nbsp;transformed&nbsp;copy&nbsp;of&nbsp;the&nbsp;board&nbsp;by&nbsp;applying&nbsp;a&nbsp;bitboard<br>
+transformation&nbsp;function.<br>
+&nbsp;<br>
+Available&nbsp;transformations&nbsp;include&nbsp;:func:`chess.<a href="#-flip_vertical">flip_vertical</a>()`,<br>
+:func:`chess.<a href="#-flip_horizontal">flip_horizontal</a>()`,&nbsp;:func:`chess.<a href="#-flip_diagonal">flip_diagonal</a>()`,<br>
+:func:`chess.<a href="#-flip_anti_diagonal">flip_anti_diagonal</a>()`,&nbsp;:func:`chess.<a href="#-shift_down">shift_down</a>()`,<br>
+:func:`chess.<a href="#-shift_up">shift_up</a>()`,&nbsp;:func:`chess.<a href="#-shift_left">shift_left</a>()`,&nbsp;and<br>
+:func:`chess.<a href="#-shift_right">shift_right</a>()`.<br>
+&nbsp;<br>
+Alternatively,&nbsp;:func:`~chess.<a href="#BaseBoard">BaseBoard</a>.<a href="#Board-apply_transform">apply_transform</a>()`&nbsp;can&nbsp;be&nbsp;used<br>
+to&nbsp;apply&nbsp;the&nbsp;transformation&nbsp;in&nbsp;place.</tt></dd></dl>
+
+<dl><dt><a name="Board-uci"><strong>uci</strong></a>(self, move: chess.Move, *, chess960: Union[bool, NoneType] = None) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;UCI&nbsp;notation&nbsp;of&nbsp;the&nbsp;move.<br>
+&nbsp;<br>
+*chess960*&nbsp;defaults&nbsp;to&nbsp;the&nbsp;mode&nbsp;of&nbsp;the&nbsp;board.&nbsp;Pass&nbsp;``True``&nbsp;to&nbsp;force<br>
+Chess960&nbsp;mode.</tt></dd></dl>
+
+<dl><dt><a name="Board-variation_san"><strong>variation_san</strong></a>(self, variation: Iterable[chess.Move]) -&gt; str</dt><dd><tt>Given&nbsp;a&nbsp;sequence&nbsp;of&nbsp;moves,&nbsp;returns&nbsp;a&nbsp;string&nbsp;representing&nbsp;the&nbsp;sequence<br>
+in&nbsp;standard&nbsp;algebraic&nbsp;notation&nbsp;(e.g.,&nbsp;``1.&nbsp;e4&nbsp;e5&nbsp;2.&nbsp;Nf3&nbsp;Nc6``&nbsp;or<br>
+``37...Bg6&nbsp;38.&nbsp;fxg6``).<br>
+&nbsp;<br>
+The&nbsp;board&nbsp;will&nbsp;not&nbsp;be&nbsp;modified&nbsp;as&nbsp;a&nbsp;result&nbsp;of&nbsp;calling&nbsp;this.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;any&nbsp;moves&nbsp;in&nbsp;the&nbsp;sequence&nbsp;are&nbsp;illegal.</tt></dd></dl>
+
+<dl><dt><a name="Board-was_into_check"><strong>was_into_check</strong></a>(self) -&gt; bool</dt></dl>
+
+<dl><dt><a name="Board-xboard"><strong>xboard</strong></a>(self, move: chess.Move, chess960: Union[bool, NoneType] = None) -&gt; str</dt></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Board-empty"><strong>empty</strong></a>(*, chess960: bool = False) -&gt; ~BoardT<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;empty&nbsp;board.&nbsp;Also&nbsp;see&nbsp;:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-clear">clear</a>()`.</tt></dd></dl>
+
+<dl><dt><a name="Board-from_chess960_pos"><strong>from_chess960_pos</strong></a>(sharnagl: int) -&gt; ~BoardT<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;board,&nbsp;initialized&nbsp;with&nbsp;a&nbsp;Chess960&nbsp;starting&nbsp;position.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;random<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>.<a href="#Board-from_chess960_pos">from_chess960_pos</a>(random.randint(0,&nbsp;959))</tt></dd></dl>
+
+<dl><dt><a name="Board-from_epd"><strong>from_epd</strong></a>(epd: str, *, chess960: bool = False) -&gt; Tuple[~BoardT, Dict[str, Union[NoneType, str, int, float, chess.Move, List[chess.Move]]]]<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;board&nbsp;from&nbsp;an&nbsp;EPD&nbsp;string.&nbsp;See<br>
+:func:`~chess.<a href="#Board">Board</a>.<a href="#Board-set_epd">set_epd</a>()`.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;board&nbsp;and&nbsp;the&nbsp;dictionary&nbsp;of&nbsp;parsed&nbsp;operations&nbsp;as&nbsp;a&nbsp;tuple.</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>legal_moves</strong></dt>
+</dl>
+<dl><dt><strong>pseudo_legal_moves</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'pawnless_tbw_magic': typing.ClassVar[typing.Union[bytes, NoneType]], 'pawnless_tbw_suffix': typing.ClassVar[typing.Union[str, NoneType]], 'pawnless_tbz_magic': typing.ClassVar[typing.Union[bytes, NoneType]], 'pawnless_tbz_suffix': typing.ClassVar[typing.Union[str, NoneType]], 'tbw_magic': typing.ClassVar[typing.Union[bytes, NoneType]], 'tbw_suffix': typing.ClassVar[typing.Union[str, NoneType]], 'tbz_magic': typing.ClassVar[typing.Union[bytes, NoneType]], 'tbz_suffix': typing.ClassVar[typing.Union[str, NoneType]], 'uci_variant': typing.ClassVar[typing.Union[str, NoneType]], 'xboard_variant': typing.ClassVar[typing.Union[str, NoneType]]}</dl>
+
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<dl><dt><strong>aliases</strong> = ['Standard', 'Chess', 'Classical', 'Normal', 'Illegal', 'From Position']</dl>
+
+<dl><dt><strong>captures_compulsory</strong> = False</dl>
+
+<dl><dt><strong>connected_kings</strong> = False</dl>
+
+<dl><dt><strong>one_king</strong> = True</dl>
+
+<dl><dt><strong>pawnless_tbw_magic</strong> = None</dl>
+
+<dl><dt><strong>pawnless_tbw_suffix</strong> = None</dl>
+
+<dl><dt><strong>pawnless_tbz_magic</strong> = None</dl>
+
+<dl><dt><strong>pawnless_tbz_suffix</strong> = None</dl>
+
+<dl><dt><strong>starting_fen</strong> = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'</dl>
+
+<dl><dt><strong>tbw_magic</strong> = b'q\xe8#]'</dl>
+
+<dl><dt><strong>tbw_suffix</strong> = '.rtbw'</dl>
+
+<dl><dt><strong>tbz_magic</strong> = b'\xd7f\x0c\xa5'</dl>
+
+<dl><dt><strong>tbz_suffix</strong> = '.rtbz'</dl>
+
+<dl><dt><strong>uci_variant</strong> = 'chess'</dl>
+
+<dl><dt><strong>xboard_variant</strong> = 'normal'</dl>
+
+<hr>
+Methods inherited from <a href="chess.html#BaseBoard">BaseBoard</a>:<br>
+<dl><dt><a name="Board-__copy__"><strong>__copy__</strong></a>(self: ~BaseBoardT) -&gt; ~BaseBoardT</dt></dl>
+
+<dl><dt><a name="Board-__deepcopy__"><strong>__deepcopy__</strong></a>(self: ~BaseBoardT, memo: Dict[int, object]) -&gt; ~BaseBoardT</dt></dl>
+
+<dl><dt><a name="Board-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="Board-attackers"><strong>attackers</strong></a>(self, color: bool, square: int) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;the&nbsp;set&nbsp;of&nbsp;attackers&nbsp;of&nbsp;the&nbsp;given&nbsp;color&nbsp;for&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+Pinned&nbsp;pieces&nbsp;still&nbsp;count&nbsp;as&nbsp;attackers.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="Board-attackers_mask"><strong>attackers_mask</strong></a>(self, color: bool, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="Board-attacks"><strong>attacks</strong></a>(self, square: int) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;the&nbsp;set&nbsp;of&nbsp;attacked&nbsp;squares&nbsp;from&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+There&nbsp;will&nbsp;be&nbsp;no&nbsp;attacks&nbsp;if&nbsp;the&nbsp;square&nbsp;is&nbsp;empty.&nbsp;Pinned&nbsp;pieces&nbsp;are<br>
+still&nbsp;attacking&nbsp;other&nbsp;squares.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="Board-attacks_mask"><strong>attacks_mask</strong></a>(self, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="Board-board_fen"><strong>board_fen</strong></a>(self, *, promoted: Union[bool, NoneType] = False) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;board&nbsp;FEN.</tt></dd></dl>
+
+<dl><dt><a name="Board-color_at"><strong>color_at</strong></a>(self, square: int) -&gt; Union[bool, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;piece&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_attacked_by"><strong>is_attacked_by</strong></a>(self, color: bool, square: int) -&gt; bool</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;given&nbsp;side&nbsp;attacks&nbsp;the&nbsp;given&nbsp;square.<br>
+&nbsp;<br>
+Pinned&nbsp;pieces&nbsp;still&nbsp;count&nbsp;as&nbsp;attackers.&nbsp;Pawns&nbsp;that&nbsp;can&nbsp;be&nbsp;captured<br>
+en&nbsp;passant&nbsp;are&nbsp;**not**&nbsp;considered&nbsp;attacked.</tt></dd></dl>
+
+<dl><dt><a name="Board-is_pinned"><strong>is_pinned</strong></a>(self, color: bool, square: int) -&gt; bool</dt><dd><tt>Detects&nbsp;if&nbsp;the&nbsp;given&nbsp;square&nbsp;is&nbsp;pinned&nbsp;to&nbsp;the&nbsp;king&nbsp;of&nbsp;the&nbsp;given&nbsp;color.</tt></dd></dl>
+
+<dl><dt><a name="Board-king"><strong>king</strong></a>(self, color: bool) -&gt; Union[int, NoneType]</dt><dd><tt>Finds&nbsp;the&nbsp;king&nbsp;square&nbsp;of&nbsp;the&nbsp;given&nbsp;side.&nbsp;Returns&nbsp;``None``&nbsp;if&nbsp;there<br>
+is&nbsp;no&nbsp;king&nbsp;of&nbsp;that&nbsp;color.<br>
+&nbsp;<br>
+In&nbsp;variants&nbsp;with&nbsp;king&nbsp;promotions,&nbsp;only&nbsp;non-promoted&nbsp;kings&nbsp;are<br>
+considered.</tt></dd></dl>
+
+<dl><dt><a name="Board-piece_at"><strong>piece_at</strong></a>(self, square: int) -&gt; Union[chess.Piece, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;:class:`piece&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="Board-piece_map"><strong>piece_map</strong></a>(self) -&gt; Dict[int, chess.Piece]</dt><dd><tt>Gets&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;:class:`pieces&nbsp;&lt;chess.<a href="#Piece">Piece</a>&gt;`&nbsp;by&nbsp;square&nbsp;index.</tt></dd></dl>
+
+<dl><dt><a name="Board-piece_type_at"><strong>piece_type_at</strong></a>(self, square: int) -&gt; Union[int, NoneType]</dt><dd><tt>Gets&nbsp;the&nbsp;piece&nbsp;type&nbsp;at&nbsp;the&nbsp;given&nbsp;square.</tt></dd></dl>
+
+<dl><dt><a name="Board-pieces"><strong>pieces</strong></a>(self, piece_type: int, color: bool) -&gt; 'SquareSet'</dt><dd><tt>Gets&nbsp;pieces&nbsp;of&nbsp;the&nbsp;given&nbsp;type&nbsp;and&nbsp;color.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`.</tt></dd></dl>
+
+<dl><dt><a name="Board-pieces_mask"><strong>pieces_mask</strong></a>(self, piece_type: int, color: bool) -&gt; int</dt></dl>
+
+<dl><dt><a name="Board-pin"><strong>pin</strong></a>(self, color: bool, square: int) -&gt; 'SquareSet'</dt><dd><tt>Detects&nbsp;an&nbsp;absolute&nbsp;pin&nbsp;(and&nbsp;its&nbsp;direction)&nbsp;of&nbsp;the&nbsp;given&nbsp;square&nbsp;to<br>
+the&nbsp;king&nbsp;of&nbsp;the&nbsp;given&nbsp;color.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;chess.<a href="#Board">Board</a>("rnb1k2r/ppp2ppp/5n2/3q4/1b1P4/2N5/PP3PPP/R1BQKBNR&nbsp;w&nbsp;KQkq&nbsp;-&nbsp;3&nbsp;7")<br>
+&gt;&gt;&gt;&nbsp;board.<a href="#Board-is_pinned">is_pinned</a>(chess.WHITE,&nbsp;chess.C3)<br>
+True<br>
+&gt;&gt;&gt;&nbsp;direction&nbsp;=&nbsp;board.<a href="#Board-pin">pin</a>(chess.WHITE,&nbsp;chess.C3)<br>
+&gt;&gt;&gt;&nbsp;direction<br>
+<a href="#SquareSet">SquareSet</a>(0x0000_0001_0204_0810)<br>
+&gt;&gt;&gt;&nbsp;print(direction)<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;:class:`set&nbsp;of&nbsp;squares&nbsp;&lt;chess.<a href="#SquareSet">SquareSet</a>&gt;`&nbsp;that&nbsp;mask&nbsp;the&nbsp;rank,<br>
+file&nbsp;or&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;pin.&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;pin,&nbsp;then&nbsp;a&nbsp;mask&nbsp;of&nbsp;the<br>
+entire&nbsp;board&nbsp;is&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="Board-pin_mask"><strong>pin_mask</strong></a>(self, color: bool, square: int) -&gt; int</dt></dl>
+
+<dl><dt><a name="Board-unicode"><strong>unicode</strong></a>(self, *, invert_color: bool = False, borders: bool = False, empty_square: str = '⭘') -&gt; str</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;board&nbsp;with&nbsp;Unicode&nbsp;pieces.<br>
+Useful&nbsp;for&nbsp;pretty-printing&nbsp;to&nbsp;a&nbsp;terminal.<br>
+&nbsp;<br>
+:param&nbsp;invert_color:&nbsp;Invert&nbsp;color&nbsp;of&nbsp;the&nbsp;Unicode&nbsp;pieces.<br>
+:param&nbsp;borders:&nbsp;Show&nbsp;borders&nbsp;and&nbsp;a&nbsp;coordinate&nbsp;margin.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="chess.html#BaseBoard">BaseBoard</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LegalMoveGenerator">class <strong>LegalMoveGenerator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#LegalMoveGenerator">LegalMoveGenerator</a>(board:&nbsp;chess.<a href="#Board">Board</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LegalMoveGenerator-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt></dl>
+
+<dl><dt><a name="LegalMoveGenerator-__contains__"><strong>__contains__</strong></a>(self, move: chess.Move) -&gt; bool</dt></dl>
+
+<dl><dt><a name="LegalMoveGenerator-__init__"><strong>__init__</strong></a>(self, board: chess.Board) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="LegalMoveGenerator-__iter__"><strong>__iter__</strong></a>(self) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="LegalMoveGenerator-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="LegalMoveGenerator-count"><strong>count</strong></a>(self) -&gt; int</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Move">class <strong>Move</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Move">Move</a>(from_square:&nbsp;int,&nbsp;to_square:&nbsp;int,&nbsp;promotion:&nbsp;Union[int,&nbsp;NoneType]&nbsp;=&nbsp;None,&nbsp;drop:&nbsp;Union[int,&nbsp;NoneType]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Represents&nbsp;a&nbsp;move&nbsp;from&nbsp;a&nbsp;square&nbsp;to&nbsp;a&nbsp;square&nbsp;and&nbsp;possibly&nbsp;the&nbsp;promotion<br>
+piece&nbsp;type.<br>
+&nbsp;<br>
+Drops&nbsp;and&nbsp;null&nbsp;moves&nbsp;are&nbsp;supported.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Move-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt></dl>
+
+<dl><dt><a name="Move-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Move-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="Move-__init__"><strong>__init__</strong></a>(self, from_square: int, to_square: int, promotion: Union[int, NoneType] = None, drop: Union[int, NoneType] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Move-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Move-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="Move-uci"><strong>uci</strong></a>(self) -&gt; str</dt><dd><tt>Gets&nbsp;a&nbsp;UCI&nbsp;string&nbsp;for&nbsp;the&nbsp;move.<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;a&nbsp;move&nbsp;from&nbsp;a7&nbsp;to&nbsp;a8&nbsp;would&nbsp;be&nbsp;``a7a8``&nbsp;or&nbsp;``a7a8q``<br>
+(if&nbsp;the&nbsp;latter&nbsp;is&nbsp;a&nbsp;promotion&nbsp;to&nbsp;a&nbsp;queen).<br>
+&nbsp;<br>
+The&nbsp;UCI&nbsp;representation&nbsp;of&nbsp;a&nbsp;null&nbsp;move&nbsp;is&nbsp;``0000``.</tt></dd></dl>
+
+<dl><dt><a name="Move-xboard"><strong>xboard</strong></a>(self) -&gt; str</dt></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Move-from_uci"><strong>from_uci</strong></a>(uci: str) -&gt; 'Move'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Parses&nbsp;a&nbsp;UCI&nbsp;string.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;UCI&nbsp;string&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<dl><dt><a name="Move-null"><strong>null</strong></a>() -&gt; 'Move'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Gets&nbsp;a&nbsp;null&nbsp;move.<br>
+&nbsp;<br>
+A&nbsp;null&nbsp;move&nbsp;just&nbsp;passes&nbsp;the&nbsp;turn&nbsp;to&nbsp;the&nbsp;other&nbsp;side&nbsp;(and&nbsp;possibly<br>
+forfeits&nbsp;en&nbsp;passant&nbsp;capturing).&nbsp;Null&nbsp;moves&nbsp;evaluate&nbsp;to&nbsp;``False``&nbsp;in<br>
+boolean&nbsp;contexts.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;bool(chess.<a href="#Move">Move</a>.<a href="#Move-null">null</a>())<br>
+False</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Piece">class <strong>Piece</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Piece">Piece</a>(piece_type:&nbsp;int,&nbsp;color:&nbsp;bool)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;piece&nbsp;with&nbsp;type&nbsp;and&nbsp;color.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Piece-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Piece-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="Piece-__init__"><strong>__init__</strong></a>(self, piece_type: int, color: bool) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Piece-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Piece-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="Piece-symbol"><strong>symbol</strong></a>(self) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;symbol&nbsp;``P``,&nbsp;``N``,&nbsp;``B``,&nbsp;``R``,&nbsp;``Q``&nbsp;or&nbsp;``K``&nbsp;for&nbsp;white<br>
+pieces&nbsp;or&nbsp;the&nbsp;lower-case&nbsp;variants&nbsp;for&nbsp;the&nbsp;black&nbsp;pieces.</tt></dd></dl>
+
+<dl><dt><a name="Piece-unicode_symbol"><strong>unicode_symbol</strong></a>(self, *, invert_color: bool = False) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;for&nbsp;the&nbsp;piece.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Piece-from_symbol"><strong>from_symbol</strong></a>(symbol: str) -&gt; 'Piece'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;:class:`~chess.<a href="#Piece">Piece</a>`&nbsp;instance&nbsp;from&nbsp;a&nbsp;piece&nbsp;symbol.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`ValueError`&nbsp;if&nbsp;the&nbsp;symbol&nbsp;is&nbsp;invalid.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PseudoLegalMoveGenerator">class <strong>PseudoLegalMoveGenerator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PseudoLegalMoveGenerator">PseudoLegalMoveGenerator</a>(board:&nbsp;chess.<a href="#Board">Board</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PseudoLegalMoveGenerator-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt></dl>
+
+<dl><dt><a name="PseudoLegalMoveGenerator-__contains__"><strong>__contains__</strong></a>(self, move: chess.Move) -&gt; bool</dt></dl>
+
+<dl><dt><a name="PseudoLegalMoveGenerator-__init__"><strong>__init__</strong></a>(self, board: chess.Board) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="PseudoLegalMoveGenerator-__iter__"><strong>__iter__</strong></a>(self) -&gt; Iterator[chess.Move]</dt></dl>
+
+<dl><dt><a name="PseudoLegalMoveGenerator-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="PseudoLegalMoveGenerator-count"><strong>count</strong></a>(self) -&gt; int</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SquareSet">class <strong>SquareSet</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SquareSet">SquareSet</a>(squares:&nbsp;Union[SupportsInt,&nbsp;Iterable[int]]&nbsp;=&nbsp;0)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;set&nbsp;of&nbsp;squares.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;squares&nbsp;=&nbsp;chess.<a href="#SquareSet">SquareSet</a>([chess.A8,&nbsp;chess.A1])<br>
+&gt;&gt;&gt;&nbsp;squares<br>
+<a href="#SquareSet">SquareSet</a>(0x0100_0000_0000_0001)<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;squares&nbsp;=&nbsp;chess.<a href="#SquareSet">SquareSet</a>(chess.BB_A8&nbsp;|&nbsp;chess.BB_RANK_1)<br>
+&gt;&gt;&gt;&nbsp;squares<br>
+<a href="#SquareSet">SquareSet</a>(0x0100_0000_0000_00ff)<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;print(squares)<br>
+1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;len(squares)<br>
+9<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;bool(squares)<br>
+True<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;chess.B1&nbsp;in&nbsp;squares<br>
+True<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;for&nbsp;square&nbsp;in&nbsp;squares:<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;0&nbsp;--&nbsp;chess.A1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;1&nbsp;--&nbsp;chess.B1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2&nbsp;--&nbsp;chess.C1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;3&nbsp;--&nbsp;chess.D1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;4&nbsp;--&nbsp;chess.E1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;5&nbsp;--&nbsp;chess.F1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;6&nbsp;--&nbsp;chess.G1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;7&nbsp;--&nbsp;chess.H1<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;56&nbsp;--&nbsp;chess.A8<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(square)<br>
+...<br>
+0<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+56<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;list(squares)<br>
+[0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;56]<br>
+&nbsp;<br>
+Square&nbsp;sets&nbsp;are&nbsp;internally&nbsp;represented&nbsp;by&nbsp;64-bit&nbsp;integer&nbsp;masks&nbsp;of&nbsp;the<br>
+included&nbsp;squares.&nbsp;Bitwise&nbsp;operations&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;compute&nbsp;unions,<br>
+intersections&nbsp;and&nbsp;shifts.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;int(squares)<br>
+72057594037928191<br>
+&nbsp;<br>
+Also&nbsp;supports&nbsp;common&nbsp;set&nbsp;operations&nbsp;like<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-issubset">issubset</a>()`,&nbsp;:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-issuperset">issuperset</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-union">union</a>()`,&nbsp;:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-intersection">intersection</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-difference">difference</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-symmetric_difference">symmetric_difference</a>()`&nbsp;and<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-copy">copy</a>()`&nbsp;as&nbsp;well&nbsp;as<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-update">update</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-intersection_update">intersection_update</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-difference_update">difference_update</a>()`,<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-symmetric_difference_update">symmetric_difference_update</a>()`&nbsp;and<br>
+:func:`~chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-clear">clear</a>()`.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SquareSet-__and__"><strong>__and__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt></dl>
+
+<dl><dt><a name="SquareSet-__contains__"><strong>__contains__</strong></a>(self, square: int) -&gt; bool</dt></dl>
+
+<dl><dt><a name="SquareSet-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-__iand__"><strong>__iand__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__ilshift__"><strong>__ilshift__</strong></a>(self, shift: int) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__index__"><strong>__index__</strong></a>(self) -&gt; int</dt></dl>
+
+<dl><dt><a name="SquareSet-__init__"><strong>__init__</strong></a>(self, squares: Union[SupportsInt, Iterable[int]] = 0) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-__int__"><strong>__int__</strong></a>(self) -&gt; int</dt></dl>
+
+<dl><dt><a name="SquareSet-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__ior__"><strong>__ior__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__irshift__"><strong>__irshift__</strong></a>(self, shift: int) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__isub__"><strong>__isub__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__iter__"><strong>__iter__</strong></a>(self) -&gt; Iterator[int]</dt></dl>
+
+<dl><dt><a name="SquareSet-__ixor__"><strong>__ixor__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__len__"><strong>__len__</strong></a>(self) -&gt; int</dt></dl>
+
+<dl><dt><a name="SquareSet-__lshift__"><strong>__lshift__</strong></a>(self, shift: int) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__or__"><strong>__or__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-__reversed__"><strong>__reversed__</strong></a>(self) -&gt; Iterator[int]</dt></dl>
+
+<dl><dt><a name="SquareSet-__rshift__"><strong>__rshift__</strong></a>(self, shift: int) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-__sub__"><strong>__sub__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-__xor__"><strong>__xor__</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-add"><strong>add</strong></a>(self, square: int) -&gt; None</dt><dd><tt>Adds&nbsp;a&nbsp;square&nbsp;to&nbsp;the&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-carry_rippler"><strong>carry_rippler</strong></a>(self) -&gt; Iterator[int]</dt><dd><tt>Iterator&nbsp;over&nbsp;the&nbsp;subsets&nbsp;of&nbsp;this&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-clear"><strong>clear</strong></a>(self) -&gt; None</dt><dd><tt>Remove&nbsp;all&nbsp;elements&nbsp;from&nbsp;this&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-copy"><strong>copy</strong></a>(self) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-difference"><strong>difference</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-difference_update"><strong>difference_update</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; None</dt></dl>
+
+<dl><dt><a name="SquareSet-discard"><strong>discard</strong></a>(self, square: int) -&gt; None</dt><dd><tt>Discards&nbsp;a&nbsp;square&nbsp;from&nbsp;the&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-intersection"><strong>intersection</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-intersection_update"><strong>intersection_update</strong></a>(self, *others: Union[SupportsInt, Iterable[int]]) -&gt; None</dt></dl>
+
+<dl><dt><a name="SquareSet-isdisjoint"><strong>isdisjoint</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; bool</dt><dd><tt>Test&nbsp;if&nbsp;the&nbsp;square&nbsp;sets&nbsp;are&nbsp;disjoint.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-issubset"><strong>issubset</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; bool</dt><dd><tt>Test&nbsp;if&nbsp;this&nbsp;square&nbsp;set&nbsp;is&nbsp;a&nbsp;subset&nbsp;of&nbsp;another.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-issuperset"><strong>issuperset</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; bool</dt><dd><tt>Test&nbsp;if&nbsp;this&nbsp;square&nbsp;set&nbsp;is&nbsp;a&nbsp;superset&nbsp;of&nbsp;another.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-mirror"><strong>mirror</strong></a>(self) -&gt; 'SquareSet'</dt><dd><tt>Returns&nbsp;a&nbsp;vertically&nbsp;mirrored&nbsp;copy&nbsp;of&nbsp;this&nbsp;square&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-pop"><strong>pop</strong></a>(self) -&gt; int</dt><dd><tt>Removes&nbsp;a&nbsp;square&nbsp;from&nbsp;the&nbsp;set&nbsp;and&nbsp;returns&nbsp;it.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`KeyError`&nbsp;on&nbsp;an&nbsp;empty&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-remove"><strong>remove</strong></a>(self, square: int) -&gt; None</dt><dd><tt>Removes&nbsp;a&nbsp;square&nbsp;from&nbsp;the&nbsp;set.<br>
+&nbsp;<br>
+:raises:&nbsp;:exc:`KeyError`&nbsp;if&nbsp;the&nbsp;given&nbsp;square&nbsp;was&nbsp;not&nbsp;in&nbsp;the&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-symmetric_difference"><strong>symmetric_difference</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-symmetric_difference_update"><strong>symmetric_difference_update</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; None</dt></dl>
+
+<dl><dt><a name="SquareSet-tolist"><strong>tolist</strong></a>(self) -&gt; List[bool]</dt><dd><tt>Convert&nbsp;the&nbsp;set&nbsp;to&nbsp;a&nbsp;list&nbsp;of&nbsp;64&nbsp;bools.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-union"><strong>union</strong></a>(self, other: Union[SupportsInt, Iterable[int]]) -&gt; 'SquareSet'</dt></dl>
+
+<dl><dt><a name="SquareSet-update"><strong>update</strong></a>(self, *others: Union[SupportsInt, Iterable[int]]) -&gt; None</dt></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="SquareSet-between"><strong>between</strong></a>(a: int, b: int) -&gt; 'SquareSet'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>All&nbsp;squares&nbsp;on&nbsp;the&nbsp;rank,&nbsp;file&nbsp;or&nbsp;diagonal&nbsp;between&nbsp;the&nbsp;two&nbsp;squares<br>
+(bounds&nbsp;not&nbsp;included),&nbsp;if&nbsp;they&nbsp;are&nbsp;aligned.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;print(chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-between">between</a>(chess.E2,&nbsp;chess.B5))<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-from_square"><strong>from_square</strong></a>(square: int) -&gt; 'SquareSet'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Creates&nbsp;a&nbsp;:class:`~chess.<a href="#SquareSet">SquareSet</a>`&nbsp;from&nbsp;a&nbsp;single&nbsp;square.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-from_square">from_square</a>(chess.A1)&nbsp;==&nbsp;chess.BB_A1<br>
+True</tt></dd></dl>
+
+<dl><dt><a name="SquareSet-ray"><strong>ray</strong></a>(a: int, b: int) -&gt; 'SquareSet'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>All&nbsp;squares&nbsp;on&nbsp;the&nbsp;rank,&nbsp;file&nbsp;or&nbsp;diagonal&nbsp;with&nbsp;the&nbsp;two&nbsp;squares,&nbsp;if&nbsp;they<br>
+are&nbsp;aligned.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;chess<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt;&nbsp;print(chess.<a href="#SquareSet">SquareSet</a>.<a href="#SquareSet-ray">ray</a>(chess.E2,&nbsp;chess.B5))<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.&nbsp;.<br>
+.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;1&nbsp;.&nbsp;.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Status">class <strong>Status</strong></a>(<a href="enum.html#IntFlag">enum.IntFlag</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Status">Status</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1)<br>
+&nbsp;<br>
+An&nbsp;enumeration.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="chess.html#Status">Status</a></dd>
+<dd><a href="enum.html#IntFlag">enum.IntFlag</a></dd>
+<dd><a href="builtins.html#int">builtins.int</a></dd>
+<dd><a href="enum.html#Flag">enum.Flag</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>BAD_CASTLING_RIGHTS</strong> = &lt;Status.BAD_CASTLING_RIGHTS: 256&gt;</dl>
+
+<dl><dt><strong>EMPTY</strong> = &lt;Status.EMPTY: 2048&gt;</dl>
+
+<dl><dt><strong>INVALID_EP_SQUARE</strong> = &lt;Status.INVALID_EP_SQUARE: 512&gt;</dl>
+
+<dl><dt><strong>NO_BLACK_KING</strong> = &lt;Status.NO_BLACK_KING: 2&gt;</dl>
+
+<dl><dt><strong>NO_WHITE_KING</strong> = &lt;Status.NO_WHITE_KING: 1&gt;</dl>
+
+<dl><dt><strong>OPPOSITE_CHECK</strong> = &lt;Status.OPPOSITE_CHECK: 1024&gt;</dl>
+
+<dl><dt><strong>PAWNS_ON_BACKRANK</strong> = &lt;Status.PAWNS_ON_BACKRANK: 32&gt;</dl>
+
+<dl><dt><strong>RACE_CHECK</strong> = &lt;Status.RACE_CHECK: 4096&gt;</dl>
+
+<dl><dt><strong>RACE_MATERIAL</strong> = &lt;Status.RACE_MATERIAL: 16384&gt;</dl>
+
+<dl><dt><strong>RACE_OVER</strong> = &lt;Status.RACE_OVER: 8192&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_BLACK_PAWNS</strong> = &lt;Status.TOO_MANY_BLACK_PAWNS: 16&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_BLACK_PIECES</strong> = &lt;Status.TOO_MANY_BLACK_PIECES: 128&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_CHECKERS</strong> = &lt;Status.TOO_MANY_CHECKERS: 32768&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_KINGS</strong> = &lt;Status.TOO_MANY_KINGS: 4&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_WHITE_PAWNS</strong> = &lt;Status.TOO_MANY_WHITE_PAWNS: 8&gt;</dl>
+
+<dl><dt><strong>TOO_MANY_WHITE_PIECES</strong> = &lt;Status.TOO_MANY_WHITE_PIECES: 64&gt;</dl>
+
+<dl><dt><strong>VALID</strong> = &lt;Status.VALID: 0&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</tt></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><tt>The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</tt></dd>
+</dl>
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumMeta">enum.EnumMeta</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><tt>Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-between"><strong>between</strong></a>(a: int, b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-flip_anti_diagonal"><strong>flip_anti_diagonal</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-flip_diagonal"><strong>flip_diagonal</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-flip_horizontal"><strong>flip_horizontal</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-flip_vertical"><strong>flip_vertical</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-lsb"><strong>lsb</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-msb"><strong>msb</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-piece_name"><strong>piece_name</strong></a>(piece_type: int) -&gt; str</dt></dl>
+ <dl><dt><a name="-piece_symbol"><strong>piece_symbol</strong></a>(piece_type: int) -&gt; str</dt></dl>
+ <dl><dt><a name="-popcount"><strong>popcount</strong></a>(bb: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-scan_forward"><strong>scan_forward</strong></a>(bb: int) -&gt; Iterator[int]</dt></dl>
+ <dl><dt><a name="-scan_reversed"><strong>scan_reversed</strong></a>(bb: int) -&gt; Iterator[int]</dt></dl>
+ <dl><dt><a name="-shift_2_down"><strong>shift_2_down</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_2_left"><strong>shift_2_left</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_2_right"><strong>shift_2_right</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_2_up"><strong>shift_2_up</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_down"><strong>shift_down</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_down_left"><strong>shift_down_left</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_down_right"><strong>shift_down_right</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_left"><strong>shift_left</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_right"><strong>shift_right</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_up"><strong>shift_up</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_up_left"><strong>shift_up_left</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-shift_up_right"><strong>shift_up_right</strong></a>(b: int) -&gt; int</dt></dl>
+ <dl><dt><a name="-square"><strong>square</strong></a>(file_index: int, rank_index: int) -&gt; int</dt><dd><tt>Gets&nbsp;a&nbsp;square&nbsp;number&nbsp;by&nbsp;file&nbsp;and&nbsp;rank&nbsp;index.</tt></dd></dl>
+ <dl><dt><a name="-square_distance"><strong>square_distance</strong></a>(a: int, b: int) -&gt; int</dt><dd><tt>Gets&nbsp;the&nbsp;distance&nbsp;(i.e.,&nbsp;the&nbsp;number&nbsp;of&nbsp;king&nbsp;steps)&nbsp;from&nbsp;square&nbsp;*a*&nbsp;to&nbsp;*b*.</tt></dd></dl>
+ <dl><dt><a name="-square_file"><strong>square_file</strong></a>(square: int) -&gt; int</dt><dd><tt>Gets&nbsp;the&nbsp;file&nbsp;index&nbsp;of&nbsp;the&nbsp;square&nbsp;where&nbsp;``0``&nbsp;is&nbsp;the&nbsp;a-file.</tt></dd></dl>
+ <dl><dt><a name="-square_mirror"><strong>square_mirror</strong></a>(square: int) -&gt; int</dt><dd><tt>Mirrors&nbsp;the&nbsp;square&nbsp;vertically.</tt></dd></dl>
+ <dl><dt><a name="-square_name"><strong>square_name</strong></a>(square: int) -&gt; str</dt><dd><tt>Gets&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;square,&nbsp;like&nbsp;``a3``.</tt></dd></dl>
+ <dl><dt><a name="-square_rank"><strong>square_rank</strong></a>(square: int) -&gt; int</dt><dd><tt>Gets&nbsp;the&nbsp;rank&nbsp;index&nbsp;of&nbsp;the&nbsp;square&nbsp;where&nbsp;``0``&nbsp;is&nbsp;the&nbsp;first&nbsp;rank.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>A1</strong> = 0<br>
+<strong>A2</strong> = 8<br>
+<strong>A3</strong> = 16<br>
+<strong>A4</strong> = 24<br>
+<strong>A5</strong> = 32<br>
+<strong>A6</strong> = 40<br>
+<strong>A7</strong> = 48<br>
+<strong>A8</strong> = 56<br>
+<strong>B1</strong> = 1<br>
+<strong>B2</strong> = 9<br>
+<strong>B3</strong> = 17<br>
+<strong>B4</strong> = 25<br>
+<strong>B5</strong> = 33<br>
+<strong>B6</strong> = 41<br>
+<strong>B7</strong> = 49<br>
+<strong>B8</strong> = 57<br>
+<strong>BB_A1</strong> = 1<br>
+<strong>BB_A2</strong> = 256<br>
+<strong>BB_A3</strong> = 65536<br>
+<strong>BB_A4</strong> = 16777216<br>
+<strong>BB_A5</strong> = 4294967296<br>
+<strong>BB_A6</strong> = 1099511627776<br>
+<strong>BB_A7</strong> = 281474976710656<br>
+<strong>BB_A8</strong> = 72057594037927936<br>
+<strong>BB_ALL</strong> = 18446744073709551615<br>
+<strong>BB_B1</strong> = 2<br>
+<strong>BB_B2</strong> = 512<br>
+<strong>BB_B3</strong> = 131072<br>
+<strong>BB_B4</strong> = 33554432<br>
+<strong>BB_B5</strong> = 8589934592<br>
+<strong>BB_B6</strong> = 2199023255552<br>
+<strong>BB_B7</strong> = 562949953421312<br>
+<strong>BB_B8</strong> = 144115188075855872<br>
+<strong>BB_BACKRANKS</strong> = 18374686479671623935<br>
+<strong>BB_C1</strong> = 4<br>
+<strong>BB_C2</strong> = 1024<br>
+<strong>BB_C3</strong> = 262144<br>
+<strong>BB_C4</strong> = 67108864<br>
+<strong>BB_C5</strong> = 17179869184<br>
+<strong>BB_C6</strong> = 4398046511104<br>
+<strong>BB_C7</strong> = 1125899906842624<br>
+<strong>BB_C8</strong> = 288230376151711744<br>
+<strong>BB_CENTER</strong> = 103481868288<br>
+<strong>BB_CORNERS</strong> = 9295429630892703873<br>
+<strong>BB_D1</strong> = 8<br>
+<strong>BB_D2</strong> = 2048<br>
+<strong>BB_D3</strong> = 524288<br>
+<strong>BB_D4</strong> = 134217728<br>
+<strong>BB_D5</strong> = 34359738368<br>
+<strong>BB_D6</strong> = 8796093022208<br>
+<strong>BB_D7</strong> = 2251799813685248<br>
+<strong>BB_D8</strong> = 576460752303423488<br>
+<strong>BB_DARK_SQUARES</strong> = 12273903644374837845<br>
+<strong>BB_DIAG_ATTACKS</strong> = [{0: 9241421688590303744, 512: 512, 262144: 262656, 262656: 512, 134217728: 134480384, 134218240: 512, 134479872: 262656, 134480384: 512, 68719476736: 68853957120, 68719477248: 512, ...}, {0: 36099303471056128, 1024: 1280, 524288: 525568, 525312: 1280, 268435456: 268961024, 268436480: 1280, 268959744: 525568, 268960768: 1280, 137438953472: 137707914496, 137438954496: 1280, ...}, {0: 141012904249856, 512: 141012904184320, 2048: 68096, 2560: 2560, 1048576: 1116672, 1049088: 1051136, 1050624: 68096, 1051136: 2560, 536870912: 537987584, 536871424: 537922048, ...}, {0: 550848566272, 1024: 550831657984, 4096: 16913408, 5120: 5120, 131072: 550831789056, 132096: 550831657984, 135168: 136192, 136192: 5120, 2097152: 19010560, 2098176: 2102272, ...}, {0: 6480472064, 2048: 2151688192, 8192: 4328794112, 10240: 10240, 262144: 2151950336, 264192: 2151688192, 270336: 272384, 272384: 10240, 4194304: 4332988416, 4196352: 4204544, ...}, {0: 1108177604608, 4096: 8409088, 16384: 1108169216000, 20480: 20480, 524288: 8933376, 528384: 8409088, 540672: 544768, 544768: 20480, 67108864: 76042240, 67112960: 8409088, ...}, {0: 283691315142656, 8192: 40960, 1048576: 1089536, 1056768: 40960, 134217728: 135307264, 134225920: 40960, 135266304: 1089536, 135274496: 40960, 17179869184: 17315176448, 17179877376: 40960, ...}, {0: 72624976668147712, 16384: 16384, 2097152: 2113536, 2113536: 16384, 268435456: 270548992, 268451840: 16384, 270532608: 2113536, 270548992: 16384, 34359738368: 34630287360, 34359754752: 16384, ...}, {0: 4620710844295151618, 131072: 131074, 67108864: 67239938, 67239936: 131074, 34359738368: 34426978306, 34359869440: 131074, 34426847232: 67239938, 34426978304: 131074, 17592186044416: 17626613022722, 17592186175488: 131074, ...}, {0: 9241421688590368773, 262144: 327685, 134217728: 134545413, 134479872: 327685, 68719476736: 68854022149, 68719738880: 327685, 68853694464: 134545413, 68853956608: 327685, 35184372088832: 35253226110981, 35184372350976: 327685, ...}, {0: 36099303487963146, 131072: 36099303471185930, 524288: 17432586, 655360: 655370, 268435456: 285868042, 268566528: 269090826, 268959744: 17432586, 269090816: 655370, 137438953472: 137724821514, 137439084544: 137708044298, ...}, {0: 141017232965652, 262144: 141012904443924, 1048576: 4329832468, 1310720: 1310740, 33554432: 141012937998356, 33816576: 141012904443924, 34603008: 34865172, 34865152: 1310740, 536870912: 4866703380, 537133056: 538181652, ...}, {0: 1659000848424, 524288: 550832177192, 2097152: 1108171292712, 2621440: 2621480, 67108864: 550899286056, 67633152: 550832177192, 69206016: 69730344, 69730304: 2621480, 1073741824: 1109245034536, 1074266112: 1076363304, ...}, {0: 283693466779728, 1048576: 2152726608, 4194304: 283691319296080, 5242880: 5242960, 134217728: 2286944336, 135266304: 2152726608, 138412032: 139460688, 139460608: 5242960, 17179869184: 19466813520, 17180917760: 2152726608, ...}, {0: 72624976676520096, 2097152: 10485920, 268435456: 278921376, 270532608: 10485920, 34359738368: 34638659744, 34361835520: 10485920, 34628173824: 278921376, 34630270976: 10485920, 4398046511104: 4432685170848, 4398048608256: 10485920, ...}, {0: 145249953336262720, 4194304: 4194368, 536870912: 541065280, 541065216: 4194368, 68719476736: 69260542016, 68723671040: 4194368, 69256347648: 541065280, 69260541952: 4194368, 8796093022208: 8865353564224, 8796097216512: 4194368, ...}, {0: 2310355422147510788, 512: 2310355422147510784, 33554432: 33554948, 33554944: 33554944, 17179869184: 17213424132, 17179869696: 17213424128, 17213423616: 33554948, 17213424128: 33554944, 8796093022208: 8813306446340, 8796093022720: 8813306446336, ...}, {0: 4620710844311799048, 1024: 4620710844311799040, 67108864: 83887368, 67109888: 83887360, 34359738368: 34443625736, 34359739392: 34443625728, 34426847232: 83887368, 34426848256: 83887360, 17592186044416: 17626629670152, 17592186045440: 17626629670144, ...}, {0: 9241421692918565393, 512: 9241421692918565392, 2048: 9241421692918565377, 2560: 9241421692918565376, 33554432: 9241421688623598097, 33554944: 9241421688623598096, 33556480: 9241421688623598081, 33556992: 9241421688623598080, 134217728: 4462742033, 134218240: 4462742032, ...}, {0: 36100411639206946, 1024: 36100411639206944, 4096: 36100411639206914, 5120: 36100411639206912, 67108864: 36099303537644578, 67109888: 36099303537644576, 67112960: 36099303537644546, 67113984: 36099303537644544, 268435456: 1108437111842, 268436480: 1108437111840, ...}, ...]<br>
+<strong>BB_DIAG_MASKS</strong> = [18049651735527936, 70506452091904, 275415828992, 1075975168, 38021120, 8657588224, 2216338399232, 567382630219776, 9024825867763712, 18049651735527424, 70506452221952, 275449643008, 9733406720, 2216342585344, 567382630203392, 1134765260406784, 4512412933816832, 9024825867633664, 18049651768822272, 70515108615168, ...]<br>
+<strong>BB_E1</strong> = 16<br>
+<strong>BB_E2</strong> = 4096<br>
+<strong>BB_E3</strong> = 1048576<br>
+<strong>BB_E4</strong> = 268435456<br>
+<strong>BB_E5</strong> = 68719476736<br>
+<strong>BB_E6</strong> = 17592186044416<br>
+<strong>BB_E7</strong> = 4503599627370496<br>
+<strong>BB_E8</strong> = 1152921504606846976<br>
+<strong>BB_EMPTY</strong> = 0<br>
+<strong>BB_F1</strong> = 32<br>
+<strong>BB_F2</strong> = 8192<br>
+<strong>BB_F3</strong> = 2097152<br>
+<strong>BB_F4</strong> = 536870912<br>
+<strong>BB_F5</strong> = 137438953472<br>
+<strong>BB_F6</strong> = 35184372088832<br>
+<strong>BB_F7</strong> = 9007199254740992<br>
+<strong>BB_F8</strong> = 2305843009213693952<br>
+<strong>BB_FILES</strong> = [72340172838076673, 144680345676153346, 289360691352306692, 578721382704613384, 1157442765409226768, 2314885530818453536, 4629771061636907072, 9259542123273814144]<br>
+<strong>BB_FILE_A</strong> = 72340172838076673<br>
+<strong>BB_FILE_ATTACKS</strong> = [{0: 72340172838076672, 256: 256, 65536: 65792, 65792: 256, 16777216: 16843008, 16777472: 256, 16842752: 65792, 16843008: 256, 4294967296: 4311810304, 4294967552: 256, ...}, {0: 144680345676153344, 512: 512, 131072: 131584, 131584: 512, 33554432: 33686016, 33554944: 512, 33685504: 131584, 33686016: 512, 8589934592: 8623620608, 8589935104: 512, ...}, {0: 289360691352306688, 1024: 1024, 262144: 263168, 263168: 1024, 67108864: 67372032, 67109888: 1024, 67371008: 263168, 67372032: 1024, 17179869184: 17247241216, 17179870208: 1024, ...}, {0: 578721382704613376, 2048: 2048, 524288: 526336, 526336: 2048, 134217728: 134744064, 134219776: 2048, 134742016: 526336, 134744064: 2048, 34359738368: 34494482432, 34359740416: 2048, ...}, {0: 1157442765409226752, 4096: 4096, 1048576: 1052672, 1052672: 4096, 268435456: 269488128, 268439552: 4096, 269484032: 1052672, 269488128: 4096, 68719476736: 68988964864, 68719480832: 4096, ...}, {0: 2314885530818453504, 8192: 8192, 2097152: 2105344, 2105344: 8192, 536870912: 538976256, 536879104: 8192, 538968064: 2105344, 538976256: 8192, 137438953472: 137977929728, 137438961664: 8192, ...}, {0: 4629771061636907008, 16384: 16384, 4194304: 4210688, 4210688: 16384, 1073741824: 1077952512, 1073758208: 16384, 1077936128: 4210688, 1077952512: 16384, 274877906944: 275955859456, 274877923328: 16384, ...}, {0: 9259542123273814016, 32768: 32768, 8388608: 8421376, 8421376: 32768, 2147483648: 2155905024, 2147516416: 32768, 2155872256: 8421376, 2155905024: 32768, 549755813888: 551911718912, 549755846656: 32768, ...}, {0: 72340172838076417, 65536: 65537, 16777216: 16842753, 16842752: 65537, 4294967296: 4311810049, 4295032832: 65537, 4311744512: 16842753, 4311810048: 65537, 1099511627776: 1103823437825, 1099511693312: 65537, ...}, {0: 144680345676152834, 131072: 131074, 33554432: 33685506, 33685504: 131074, 8589934592: 8623620098, 8590065664: 131074, 8623489024: 33685506, 8623620096: 131074, 2199023255552: 2207646875650, 2199023386624: 131074, ...}, {0: 289360691352305668, 262144: 262148, 67108864: 67371012, 67371008: 262148, 17179869184: 17247240196, 17180131328: 262148, 17246978048: 67371012, 17247240192: 262148, 4398046511104: 4415293751300, 4398046773248: 262148, ...}, {0: 578721382704611336, 524288: 524296, 134217728: 134742024, 134742016: 524296, 34359738368: 34494480392, 34360262656: 524296, 34493956096: 134742024, 34494480384: 524296, 8796093022208: 8830587502600, 8796093546496: 524296, ...}, {0: 1157442765409222672, 1048576: 1048592, 268435456: 269484048, 269484032: 1048592, 68719476736: 68988960784, 68720525312: 1048592, 68987912192: 269484048, 68988960768: 1048592, 17592186044416: 17661175005200, 17592187092992: 1048592, ...}, {0: 2314885530818445344, 2097152: 2097184, 536870912: 538968096, 538968064: 2097184, 137438953472: 137977921568, 137441050624: 2097184, 137975824384: 538968096, 137977921536: 2097184, 35184372088832: 35322350010400, 35184374185984: 2097184, ...}, {0: 4629771061636890688, 4194304: 4194368, 1073741824: 1077936192, 1077936128: 4194368, 274877906944: 275955843136, 274882101248: 4194368, 275951648768: 1077936192, 275955843072: 4194368, 70368744177664: 70644700020800, 70368748371968: 4194368, ...}, {0: 9259542123273781376, 8388608: 8388736, 2147483648: 2155872384, 2155872256: 8388736, 549755813888: 551911686272, 549764202496: 8388736, 551903297536: 2155872384, 551911686144: 8388736, 140737488355328: 141289400041600, 140737496743936: 8388736, ...}, {0: 72340172838011137, 256: 72340172838011136, 16777216: 16777473, 16777472: 16777472, 4294967296: 4311744769, 4294967552: 4311744768, 4311744512: 16777473, 4311744768: 16777472, 1099511627776: 1103823372545, 1099511628032: 1103823372544, ...}, {0: 144680345676022274, 512: 144680345676022272, 33554432: 33554946, 33554944: 33554944, 8589934592: 8623489538, 8589935104: 8623489536, 8623489024: 33554946, 8623489536: 33554944, 2199023255552: 2207646745090, 2199023256064: 2207646745088, ...}, {0: 289360691352044548, 1024: 289360691352044544, 67108864: 67109892, 67109888: 67109888, 17179869184: 17246979076, 17179870208: 17246979072, 17246978048: 67109892, 17246979072: 67109888, 4398046511104: 4415293490180, 4398046512128: 4415293490176, ...}, {0: 578721382704089096, 2048: 578721382704089088, 134217728: 134219784, 134219776: 134219776, 34359738368: 34493958152, 34359740416: 34493958144, 34493956096: 134219784, 34493958144: 134219776, 8796093022208: 8830586980360, 8796093024256: 8830586980352, ...}, ...]<br>
+<strong>BB_FILE_B</strong> = 144680345676153346<br>
+<strong>BB_FILE_C</strong> = 289360691352306692<br>
+<strong>BB_FILE_D</strong> = 578721382704613384<br>
+<strong>BB_FILE_E</strong> = 1157442765409226768<br>
+<strong>BB_FILE_F</strong> = 2314885530818453536<br>
+<strong>BB_FILE_G</strong> = 4629771061636907072<br>
+<strong>BB_FILE_H</strong> = 9259542123273814144<br>
+<strong>BB_FILE_MASKS</strong> = [282578800148736, 565157600297472, 1130315200594944, 2260630401189888, 4521260802379776, 9042521604759552, 18085043209519104, 36170086419038208, 282578800148480, 565157600296960, 1130315200593920, 2260630401187840, 4521260802375680, 9042521604751360, 18085043209502720, 36170086419005440, 282578800083200, 565157600166400, 1130315200332800, 2260630400665600, ...]<br>
+<strong>BB_G1</strong> = 64<br>
+<strong>BB_G2</strong> = 16384<br>
+<strong>BB_G3</strong> = 4194304<br>
+<strong>BB_G4</strong> = 1073741824<br>
+<strong>BB_G5</strong> = 274877906944<br>
+<strong>BB_G6</strong> = 70368744177664<br>
+<strong>BB_G7</strong> = 18014398509481984<br>
+<strong>BB_G8</strong> = 4611686018427387904<br>
+<strong>BB_H1</strong> = 128<br>
+<strong>BB_H2</strong> = 32768<br>
+<strong>BB_H3</strong> = 8388608<br>
+<strong>BB_H4</strong> = 2147483648<br>
+<strong>BB_H5</strong> = 549755813888<br>
+<strong>BB_H6</strong> = 140737488355328<br>
+<strong>BB_H7</strong> = 36028797018963968<br>
+<strong>BB_H8</strong> = 9223372036854775808<br>
+<strong>BB_KING_ATTACKS</strong> = [770, 1797, 3594, 7188, 14376, 28752, 57504, 49216, 197123, 460039, 920078, 1840156, 3680312, 7360624, 14721248, 12599488, 50463488, 117769984, 235539968, 471079936, ...]<br>
+<strong>BB_KNIGHT_ATTACKS</strong> = [132096, 329728, 659712, 1319424, 2638848, 5277696, 10489856, 4202496, 33816580, 84410376, 168886289, 337772578, 675545156, 1351090312, 2685403152, 1075839008, 8657044482, 21609056261, 43234889994, 86469779988, ...]<br>
+<strong>BB_LIGHT_SQUARES</strong> = 6172840429334713770<br>
+<strong>BB_PAWN_ATTACKS</strong> = [[0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 10, 20, 40, 80, 160, 64, 512, 1280, 2560, 5120, ...], [512, 1280, 2560, 5120, 10240, 20480, 40960, 16384, 131072, 327680, 655360, 1310720, 2621440, 5242880, 10485760, 4194304, 33554432, 83886080, 167772160, 335544320, ...]]<br>
+<strong>BB_RANKS</strong> = [255, 65280, 16711680, 4278190080, 1095216660480, 280375465082880, 71776119061217280, 18374686479671623680]<br>
+<strong>BB_RANK_1</strong> = 255<br>
+<strong>BB_RANK_2</strong> = 65280<br>
+<strong>BB_RANK_3</strong> = 16711680<br>
+<strong>BB_RANK_4</strong> = 4278190080<br>
+<strong>BB_RANK_5</strong> = 1095216660480<br>
+<strong>BB_RANK_6</strong> = 280375465082880<br>
+<strong>BB_RANK_7</strong> = 71776119061217280<br>
+<strong>BB_RANK_8</strong> = 18374686479671623680<br>
+<strong>BB_RANK_ATTACKS</strong> = [{0: 254, 2: 2, 4: 6, 6: 2, 8: 14, 10: 2, 12: 6, 14: 2, 16: 30, 18: 2, ...}, {0: 253, 4: 5, 8: 13, 12: 5, 16: 29, 20: 5, 24: 13, 28: 5, 32: 61, 36: 5, ...}, {0: 251, 2: 250, 8: 11, 10: 10, 16: 27, 18: 26, 24: 11, 26: 10, 32: 59, 34: 58, ...}, {0: 247, 2: 246, 4: 244, 6: 244, 16: 23, 18: 22, 20: 20, 22: 20, 32: 55, 34: 54, ...}, {0: 239, 2: 238, 4: 236, 6: 236, 8: 232, 10: 232, 12: 232, 14: 232, 32: 47, 34: 46, ...}, {0: 223, 2: 222, 4: 220, 6: 220, 8: 216, 10: 216, 12: 216, 14: 216, 16: 208, 18: 208, ...}, {0: 191, 2: 190, 4: 188, 6: 188, 8: 184, 10: 184, 12: 184, 14: 184, 16: 176, 18: 176, ...}, {0: 127, 2: 126, 4: 124, 6: 124, 8: 120, 10: 120, 12: 120, 14: 120, 16: 112, 18: 112, ...}, {0: 65024, 512: 512, 1024: 1536, 1536: 512, 2048: 3584, 2560: 512, 3072: 1536, 3584: 512, 4096: 7680, 4608: 512, ...}, {0: 64768, 1024: 1280, 2048: 3328, 3072: 1280, 4096: 7424, 5120: 1280, 6144: 3328, 7168: 1280, 8192: 15616, 9216: 1280, ...}, {0: 64256, 512: 64000, 2048: 2816, 2560: 2560, 4096: 6912, 4608: 6656, 6144: 2816, 6656: 2560, 8192: 15104, 8704: 14848, ...}, {0: 63232, 512: 62976, 1024: 62464, 1536: 62464, 4096: 5888, 4608: 5632, 5120: 5120, 5632: 5120, 8192: 14080, 8704: 13824, ...}, {0: 61184, 512: 60928, 1024: 60416, 1536: 60416, 2048: 59392, 2560: 59392, 3072: 59392, 3584: 59392, 8192: 12032, 8704: 11776, ...}, {0: 57088, 512: 56832, 1024: 56320, 1536: 56320, 2048: 55296, 2560: 55296, 3072: 55296, 3584: 55296, 4096: 53248, 4608: 53248, ...}, {0: 48896, 512: 48640, 1024: 48128, 1536: 48128, 2048: 47104, 2560: 47104, 3072: 47104, 3584: 47104, 4096: 45056, 4608: 45056, ...}, {0: 32512, 512: 32256, 1024: 31744, 1536: 31744, 2048: 30720, 2560: 30720, 3072: 30720, 3584: 30720, 4096: 28672, 4608: 28672, ...}, {0: 16646144, 131072: 131072, 262144: 393216, 393216: 131072, 524288: 917504, 655360: 131072, 786432: 393216, 917504: 131072, 1048576: 1966080, 1179648: 131072, ...}, {0: 16580608, 262144: 327680, 524288: 851968, 786432: 327680, 1048576: 1900544, 1310720: 327680, 1572864: 851968, 1835008: 327680, 2097152: 3997696, 2359296: 327680, ...}, {0: 16449536, 131072: 16384000, 524288: 720896, 655360: 655360, 1048576: 1769472, 1179648: 1703936, 1572864: 720896, 1703936: 655360, 2097152: 3866624, 2228224: 3801088, ...}, {0: 16187392, 131072: 16121856, 262144: 15990784, 393216: 15990784, 1048576: 1507328, 1179648: 1441792, 1310720: 1310720, 1441792: 1310720, 2097152: 3604480, 2228224: 3538944, ...}, ...]<br>
+<strong>BB_RANK_MASKS</strong> = [126, 124, 122, 118, 110, 94, 62, 126, 32256, 31744, 31232, 30208, 28160, 24064, 15872, 32256, 8257536, 8126464, 7995392, 7733248, ...]<br>
+<strong>BB_RAYS</strong> = [[0, 255, 255, 255, 255, 255, 255, 255, 72340172838076673, 9241421688590303745, 0, 0, 0, 0, 0, 0, 72340172838076673, 0, 9241421688590303745, 0, ...], [255, 0, 255, 255, 255, 255, 255, 255, 258, 144680345676153346, 36099303471055874, 0, 0, 0, 0, 0, 0, 144680345676153346, 0, 36099303471055874, ...], [255, 255, 0, 255, 255, 255, 255, 255, 0, 66052, 289360691352306692, 141012904183812, 0, 0, 0, 0, 66052, 0, 289360691352306692, 0, ...], [255, 255, 255, 0, 255, 255, 255, 255, 0, 0, 16909320, 578721382704613384, 550831656968, 0, 0, 0, 0, 16909320, 0, 578721382704613384, ...], [255, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 4328785936, 1157442765409226768, 2151686160, 0, 0, 0, 0, 4328785936, 0, ...], [255, 255, 255, 255, 255, 0, 255, 255, 0, 0, 0, 0, 1108169199648, 2314885530818453536, 8405024, 0, 0, 0, 0, 1108169199648, ...], [255, 255, 255, 255, 255, 255, 0, 255, 0, 0, 0, 0, 0, 283691315109952, 4629771061636907072, 32832, 0, 0, 0, 0, ...], [255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 72624976668147840, 9259542123273814144, 0, 0, 0, 0, ...], [72340172838076673, 258, 0, 0, 0, 0, 0, 0, 0, 65280, 65280, 65280, 65280, 65280, 65280, 65280, 72340172838076673, 4620710844295151872, 0, 0, ...], [9241421688590303745, 144680345676153346, 66052, 0, 0, 0, 0, 0, 65280, 0, 65280, 65280, 65280, 65280, 65280, 65280, 66052, 144680345676153346, 9241421688590303745, 0, ...], [0, 36099303471055874, 289360691352306692, 16909320, 0, 0, 0, 0, 65280, 65280, 0, 65280, 65280, 65280, 65280, 65280, 0, 16909320, 289360691352306692, 36099303471055874, ...], [0, 0, 141012904183812, 578721382704613384, 4328785936, 0, 0, 0, 65280, 65280, 65280, 0, 65280, 65280, 65280, 65280, 0, 0, 4328785936, 578721382704613384, ...], [0, 0, 0, 550831656968, 1157442765409226768, 1108169199648, 0, 0, 65280, 65280, 65280, 65280, 0, 65280, 65280, 65280, 0, 0, 0, 1108169199648, ...], [0, 0, 0, 0, 2151686160, 2314885530818453536, 283691315109952, 0, 65280, 65280, 65280, 65280, 65280, 0, 65280, 65280, 0, 0, 0, 0, ...], [0, 0, 0, 0, 0, 8405024, 4629771061636907072, 72624976668147840, 65280, 65280, 65280, 65280, 65280, 65280, 0, 65280, 0, 0, 0, 0, ...], [0, 0, 0, 0, 0, 0, 32832, 9259542123273814144, 65280, 65280, 65280, 65280, 65280, 65280, 65280, 0, 0, 0, 0, 0, ...], [72340172838076673, 0, 66052, 0, 0, 0, 0, 0, 72340172838076673, 66052, 0, 0, 0, 0, 0, 0, 0, 16711680, 16711680, 16711680, ...], [0, 144680345676153346, 0, 16909320, 0, 0, 0, 0, 4620710844295151872, 144680345676153346, 16909320, 0, 0, 0, 0, 0, 16711680, 0, 16711680, 16711680, ...], [9241421688590303745, 0, 289360691352306692, 0, 4328785936, 0, 0, 0, 0, 9241421688590303745, 289360691352306692, 4328785936, 0, 0, 0, 0, 16711680, 16711680, 0, 16711680, ...], [0, 36099303471055874, 0, 578721382704613384, 0, 1108169199648, 0, 0, 0, 0, 36099303471055874, 578721382704613384, 1108169199648, 0, 0, 0, 16711680, 16711680, 16711680, 0, ...], ...]<br>
+<strong>BB_SQUARES</strong> = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, ...]<br>
+<strong>BISHOP</strong> = 3<br>
+<strong>BLACK</strong> = False<br>
+<strong>BaseBoardT</strong> = ~BaseBoardT<br>
+<strong>BoardT</strong> = ~BoardT<br>
+<strong>C1</strong> = 2<br>
+<strong>C2</strong> = 10<br>
+<strong>C3</strong> = 18<br>
+<strong>C4</strong> = 26<br>
+<strong>C5</strong> = 34<br>
+<strong>C6</strong> = 42<br>
+<strong>C7</strong> = 50<br>
+<strong>C8</strong> = 58<br>
+<strong>COLORS</strong> = [True, False]<br>
+<strong>COLOR_NAMES</strong> = ['black', 'white']<br>
+<strong>Callable</strong> = typing.Callable<br>
+<strong>ClassVar</strong> = typing.ClassVar<br>
+<strong>Counter</strong> = typing.Counter<br>
+<strong>D1</strong> = 3<br>
+<strong>D2</strong> = 11<br>
+<strong>D3</strong> = 19<br>
+<strong>D4</strong> = 27<br>
+<strong>D5</strong> = 35<br>
+<strong>D6</strong> = 43<br>
+<strong>D7</strong> = 51<br>
+<strong>D8</strong> = 59<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>E1</strong> = 4<br>
+<strong>E2</strong> = 12<br>
+<strong>E3</strong> = 20<br>
+<strong>E4</strong> = 28<br>
+<strong>E5</strong> = 36<br>
+<strong>E6</strong> = 44<br>
+<strong>E7</strong> = 52<br>
+<strong>E8</strong> = 60<br>
+<strong>F1</strong> = 5<br>
+<strong>F2</strong> = 13<br>
+<strong>F3</strong> = 21<br>
+<strong>F4</strong> = 29<br>
+<strong>F5</strong> = 37<br>
+<strong>F6</strong> = 45<br>
+<strong>F7</strong> = 53<br>
+<strong>F8</strong> = 61<br>
+<strong>FEN_CASTLING_REGEX</strong> = re.compile('^(?:-|[KQABCDEFGH]{0,2}[kqabcdefgh]{0,2})\\Z')<br>
+<strong>FILE_NAMES</strong> = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']<br>
+<strong>G1</strong> = 6<br>
+<strong>G2</strong> = 14<br>
+<strong>G3</strong> = 22<br>
+<strong>G4</strong> = 30<br>
+<strong>G5</strong> = 38<br>
+<strong>G6</strong> = 46<br>
+<strong>G7</strong> = 54<br>
+<strong>G8</strong> = 62<br>
+<strong>H1</strong> = 7<br>
+<strong>H2</strong> = 15<br>
+<strong>H3</strong> = 23<br>
+<strong>H4</strong> = 31<br>
+<strong>H5</strong> = 39<br>
+<strong>H6</strong> = 47<br>
+<strong>H7</strong> = 55<br>
+<strong>H8</strong> = 63<br>
+<strong>Hashable</strong> = typing.Hashable<br>
+<strong>IntoSquareSet</strong> = typing.Union[typing.SupportsInt, typing.Iterable[int]]<br>
+<strong>Iterable</strong> = typing.Iterable<br>
+<strong>Iterator</strong> = typing.Iterator<br>
+<strong>KING</strong> = 6<br>
+<strong>KNIGHT</strong> = 2<br>
+<strong>List</strong> = typing.List<br>
+<strong>Mapping</strong> = typing.Mapping<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PAWN</strong> = 1<br>
+<strong>PIECE_NAMES</strong> = [None, 'pawn', 'knight', 'bishop', 'rook', 'queen', 'king']<br>
+<strong>PIECE_SYMBOLS</strong> = [None, 'p', 'n', 'b', 'r', 'q', 'k']<br>
+<strong>PIECE_TYPES</strong> = range(1, 7)<br>
+<strong>QUEEN</strong> = 5<br>
+<strong>RANK_NAMES</strong> = ['1', '2', '3', '4', '5', '6', '7', '8']<br>
+<strong>ROOK</strong> = 4<br>
+<strong>SAN_REGEX</strong> = re.compile('^([NBKRQ])?([a-h])?([1-8])?[\\-x]?([a-h][1-8])(=?[nbrqkNBRQK])?[\\+#]?\\Z')<br>
+<strong>SQUARES</strong> = range(0, 64)<br>
+<strong>SQUARES_180</strong> = [56, 57, 58, 59, 60, 61, 62, 63, 48, 49, 50, 51, 52, 53, 54, 55, 40, 41, 42, 43, ...]<br>
+<strong>SQUARE_NAMES</strong> = ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1', 'a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2', 'a3', 'b3', 'c3', 'd3', ...]<br>
+<strong>STARTING_BOARD_FEN</strong> = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'<br>
+<strong>STARTING_FEN</strong> = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'<br>
+<strong>STATUS_BAD_CASTLING_RIGHTS</strong> = &lt;Status.BAD_CASTLING_RIGHTS: 256&gt;<br>
+<strong>STATUS_EMPTY</strong> = &lt;Status.EMPTY: 2048&gt;<br>
+<strong>STATUS_INVALID_EP_SQUARE</strong> = &lt;Status.INVALID_EP_SQUARE: 512&gt;<br>
+<strong>STATUS_NO_BLACK_KING</strong> = &lt;Status.NO_BLACK_KING: 2&gt;<br>
+<strong>STATUS_NO_WHITE_KING</strong> = &lt;Status.NO_WHITE_KING: 1&gt;<br>
+<strong>STATUS_OPPOSITE_CHECK</strong> = &lt;Status.OPPOSITE_CHECK: 1024&gt;<br>
+<strong>STATUS_PAWNS_ON_BACKRANK</strong> = &lt;Status.PAWNS_ON_BACKRANK: 32&gt;<br>
+<strong>STATUS_RACE_CHECK</strong> = &lt;Status.RACE_CHECK: 4096&gt;<br>
+<strong>STATUS_RACE_MATERIAL</strong> = &lt;Status.RACE_MATERIAL: 16384&gt;<br>
+<strong>STATUS_RACE_OVER</strong> = &lt;Status.RACE_OVER: 8192&gt;<br>
+<strong>STATUS_TOO_MANY_BLACK_PAWNS</strong> = &lt;Status.TOO_MANY_BLACK_PAWNS: 16&gt;<br>
+<strong>STATUS_TOO_MANY_BLACK_PIECES</strong> = &lt;Status.TOO_MANY_BLACK_PIECES: 128&gt;<br>
+<strong>STATUS_TOO_MANY_CHECKERS</strong> = &lt;Status.TOO_MANY_CHECKERS: 32768&gt;<br>
+<strong>STATUS_TOO_MANY_KINGS</strong> = &lt;Status.TOO_MANY_KINGS: 4&gt;<br>
+<strong>STATUS_TOO_MANY_WHITE_PAWNS</strong> = &lt;Status.TOO_MANY_WHITE_PAWNS: 8&gt;<br>
+<strong>STATUS_TOO_MANY_WHITE_PIECES</strong> = &lt;Status.TOO_MANY_WHITE_PIECES: 64&gt;<br>
+<strong>STATUS_VALID</strong> = &lt;Status.VALID: 0&gt;<br>
+<strong>Tuple</strong> = typing.Tuple<br>
+<strong>Type</strong> = typing.Type<br>
+<strong>UNICODE_PIECE_SYMBOLS</strong> = {'B': '♗', 'K': '♔', 'N': '♘', 'P': '♙', 'Q': '♕', 'R': '♖', 'b': '♝', 'k': '♚', 'n': '♞', 'p': '♟', ...}<br>
+<strong>Union</strong> = typing.Union<br>
+<strong>WHITE</strong> = True<br>
+<strong>__annotations__</strong> = {}<br>
+<strong>__email__</strong> = 'niklas.fiekas@backscattering.de'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Niklas&nbsp;Fiekas</td></tr></table>
+</body></html>
